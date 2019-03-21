@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F48475B-D5E1-4C95-9ECC-337A85AB05FA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>zkhwClient</RootNamespace>
+    <AssemblyName>zkhwClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>zkhw.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\公司6.6\2.0.6.6源码\展示端\MyClient\Client\bin\x86\Debug\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\展示端\MyClient\Client\bin\x86\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup">
+      <HintPath>..\..\..\..\..\Desktop\华展POS收银系统项目\展示端\MyClient\Client\bin\x86\Debug\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bean\loginLogBean.cs" />
+    <Compile Include="bean\UserInfo.cs" />
+    <Compile Include="control\PagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\PagerControl.designer.cs">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dao\loginLogDao.cs" />
+    <Compile Include="dao\UserDao.cs" />
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyEncrypt.cs" />
+    <Compile Include="view\HomeDoctorSigningView\onSiteSigning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\HomeDoctorSigningView\onSiteSigning.Designer.cs">
+      <DependentUpon>onSiteSigning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\HomeDoctorSigningView\signingStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\HomeDoctorSigningView\signingStatistics.Designer.cs">
+      <DependentUpon>signingStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\HomeDoctorSigningView\teamMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\HomeDoctorSigningView\teamMembers.Designer.cs">
+      <DependentUpon>teamMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\childHealthServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\childHealthServices.Designer.cs">
+      <DependentUpon>childHealthServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\diabetesPatientServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\diabetesPatientServices.Designer.cs">
+      <DependentUpon>diabetesPatientServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\examinatProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\examinatProgress.Designer.cs">
+      <DependentUpon>examinatProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\examinatReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\examinatReport.Designer.cs">
+      <DependentUpon>examinatReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\healthEducationServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\healthEducationServices.Designer.cs">
+      <DependentUpon>healthEducationServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\hypertensionPatientServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\hypertensionPatientServices.Designer.cs">
+      <DependentUpon>hypertensionPatientServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\maternalHealthServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\maternalHealthServices.Designer.cs">
+      <DependentUpon>maternalHealthServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\olderHelthService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\olderHelthService.Designer.cs">
+      <DependentUpon>olderHelthService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\personRegist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\personRegist.Designer.cs">
+      <DependentUpon>personRegist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\psychiatricPatientServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\psychiatricPatientServices.Designer.cs">
+      <DependentUpon>psychiatricPatientServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\tcmHealthServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\tcmHealthServices.Designer.cs">
+      <DependentUpon>tcmHealthServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\tuberculosisPatientServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\tuberculosisPatientServices.Designer.cs">
+      <DependentUpon>tuberculosisPatientServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\vaccinationServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\vaccinationServices.Designer.cs">
+      <DependentUpon>vaccinationServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\setting\basicInfoSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\setting\basicInfoSettings.Designer.cs">
+      <DependentUpon>basicInfoSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\setting\deviceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\setting\deviceManagement.Designer.cs">
+      <DependentUpon>deviceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\setting\systemlog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\setting\systemlog.Designer.cs">
+      <DependentUpon>systemlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SystemSettingsView\passWordUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SystemSettingsView\passWordUpdate.Designer.cs">
+      <DependentUpon>passWordUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\SystemSettingsView\addUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SystemSettingsView\addUser.Designer.cs">
+      <DependentUpon>addUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="service\SystemSettingService\loginLogService.cs" />
+    <Compile Include="service\SystemSettingService\UserService.cs" />
+    <Compile Include="view\SystemSettingsView\updateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SystemSettingsView\updateUser.Designer.cs">
+      <DependentUpon>updateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SystemSettingsView\userManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SystemSettingsView\userManage.Designer.cs">
+      <DependentUpon>userManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utils\DbHelperMySQL.cs" />
+    <Compile Include="utils\Result.cs" />
+    <Compile Include="view\DataAnalysisView\usageStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DataAnalysisView\usageStatistics.Designer.cs">
+      <DependentUpon>usageStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\biochemical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\biochemical.Designer.cs">
+      <DependentUpon>biochemical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodAnalysis.Designer.cs">
+      <DependentUpon>bloodAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodMeter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodMeter.Designer.cs">
+      <DependentUpon>bloodMeter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodPressure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodPressure.Designer.cs">
+      <DependentUpon>bloodPressure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodSugar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\bloodSugar.Designer.cs">
+      <DependentUpon>bloodSugar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\bodyTemperatureGun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\bodyTemperatureGun.Designer.cs">
+      <DependentUpon>bodyTemperatureGun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\bUltrasound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\bUltrasound.Designer.cs">
+      <DependentUpon>bUltrasound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\electrocarDiogram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\electrocarDiogram.Designer.cs">
+      <DependentUpon>electrocarDiogram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\heightAndWeight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\heightAndWeight.Designer.cs">
+      <DependentUpon>heightAndWeight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\softwareSystems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\softwareSystems.Designer.cs">
+      <DependentUpon>softwareSystems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UseHelpView\urinaryFluid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UseHelpView\urinaryFluid.Designer.cs">
+      <DependentUpon>urinaryFluid.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="control\PagerControl.resx">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\HomeDoctorSigningView\onSiteSigning.resx">
+      <DependentUpon>onSiteSigning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\HomeDoctorSigningView\signingStatistics.resx">
+      <DependentUpon>signingStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\HomeDoctorSigningView\teamMembers.resx">
+      <DependentUpon>teamMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\childHealthServices.resx">
+      <DependentUpon>childHealthServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\examinatProgress.resx">
+      <DependentUpon>examinatProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\examinatReport.resx">
+      <DependentUpon>examinatReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\hypertensionPatientServices.resx">
+      <DependentUpon>hypertensionPatientServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\olderHelthService.resx">
+      <DependentUpon>olderHelthService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\personRegist.resx">
+      <DependentUpon>personRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\setting\basicInfoSettings.resx">
+      <DependentUpon>basicInfoSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SystemSettingsView\passWordUpdate.resx">
+      <DependentUpon>passWordUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="view\SystemSettingsView\addUser.resx">
+      <DependentUpon>addUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SystemSettingsView\updateUser.resx">
+      <DependentUpon>updateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SystemSettingsView\userManage.resx">
+      <DependentUpon>userManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\Huazhan.exe.config" />
+    <None Include="bin\Debug\Huazhan.vshost.exe.config" />
+    <None Include="bin\Debug\Huazhan.vshost.exe.manifest" />
+    <None Include="bin\x86\Debug\fonts\simhei.ttf" />
+    <None Include="bin\x86\Debug\fonts\SIMYOU.TTF" />
+    <None Include="bin\x86\Debug\Huazhan.exe.config" />
+    <None Include="bin\x86\Debug\Huazhan.vshost.exe.config" />
+    <None Include="bin\x86\Debug\HuazhanPos.vshost.exe.config" />
+    <None Include="bin\x86\Debug\HuazhanPos.vshost.exe.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Huazhan.exe" />
+    <Content Include="bin\Debug\Huazhan.pdb" />
+    <Content Include="bin\Debug\Huazhan.vshost.exe" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\MySqlBackup.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\x86\Debug\config.xml" />
+    <Content Include="bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\Huazhan.exe" />
+    <Content Include="bin\x86\Debug\Huazhan.pdb" />
+    <Content Include="bin\x86\Debug\Huazhan.vshost.exe" />
+    <Content Include="bin\x86\Debug\images\about.png" />
+    <Content Include="bin\x86\Debug\images\assign.png" />
+    <Content Include="bin\x86\Debug\images\cancel.png" />
+    <Content Include="bin\x86\Debug\images\check.png" />
+    <Content Include="bin\x86\Debug\images\clear.png" />
+    <Content Include="bin\x86\Debug\images\close.png" />
+    <Content Include="bin\x86\Debug\images\delete.png" />
+    <Content Include="bin\x86\Debug\images\dqjl.png" />
+    <Content Include="bin\x86\Debug\images\fanhui.png" />
+    <Content Include="bin\x86\Debug\images\hover.png" />
+    <Content Include="bin\x86\Debug\images\inputcontent.png" />
+    <Content Include="bin\x86\Debug\images\insert.png" />
+    <Content Include="bin\x86\Debug\images\kong.png" />
+    <Content Include="bin\x86\Debug\images\login.png" />
+    <Content Include="bin\x86\Debug\images\login1.png" />
+    <Content Include="bin\x86\Debug\images\logo.png" />
+    <Content Include="bin\x86\Debug\images\password.png" />
+    <Content Include="bin\x86\Debug\images\save.png" />
+    <Content Include="bin\x86\Debug\images\shezhi.png" />
+    <Content Include="bin\x86\Debug\images\sjtb.png" />
+    <Content Include="bin\x86\Debug\images\startPic.jpg" />
+    <Content Include="bin\x86\Debug\images\stop.png" />
+    <Content Include="bin\x86\Debug\images\tpbc.png" />
+    <Content Include="bin\x86\Debug\images\tpsc.png" />
+    <Content Include="bin\x86\Debug\images\tuichu.png" />
+    <Content Include="bin\x86\Debug\images\update.png" />
+    <Content Include="bin\x86\Debug\images\xzwj.png" />
+    <Content Include="bin\x86\Debug\itextsharp.dll" />
+    <Content Include="bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="bin\x86\Debug\Microsoft.SqlServer.Types.dll" />
+    <Content Include="bin\x86\Debug\MySql.Data.dll" />
+    <Content Include="bin\x86\Debug\MySqlBackup.dll" />
+    <Content Include="bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="zkhw.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="bin\x64\Debug\" />
+    <Folder Include="bin\x64\Release\" />
+    <Folder Include="bin\x86\Release\" />
+    <Folder Include="service\DataAnalysisService\" />
+    <Folder Include="service\HomeDoctorSigningService\" />
+    <Folder Include="service\PublicHealthService\" />
+    <Folder Include="service\UseHelpService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
