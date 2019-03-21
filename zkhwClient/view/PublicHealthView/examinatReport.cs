@@ -35,7 +35,6 @@ GROUP BY XingBie
                 }
                 总数.Text = data.Compute("sum(sun)", "true").ToString();
             }
-
         }
 
         private void examinatProgress_Load(object sender, EventArgs e)
