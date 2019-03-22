@@ -44,6 +44,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.血压75 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.血压7075 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.血压6570 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.血压064 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.统计查询 = new System.Windows.Forms.Button();
             this.生化75 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.尿常规75 = new System.Windows.Forms.Label();
@@ -104,20 +113,31 @@
             this.总数 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.统计查询 = new System.Windows.Forms.Button();
-            this.血压75 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.血压7075 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.血压6570 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.血压064 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pagerControl1 = new zkhwClient.control.PagerControl();
+            this.版式 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -139,13 +159,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(1, 127);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1158, 86);
+            this.groupBox1.Size = new System.Drawing.Size(1158, 108);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "报告导出-查询条件";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 52);
+            this.textBox1.Location = new System.Drawing.Point(88, 62);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 21);
             this.textBox1.TabIndex = 12;
@@ -153,7 +174,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 55);
+            this.label4.Location = new System.Drawing.Point(11, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 11;
@@ -162,7 +183,7 @@
             // comboBox5
             // 
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(943, 18);
+            this.comboBox5.Location = new System.Drawing.Point(943, 28);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(114, 20);
             this.comboBox5.TabIndex = 10;
@@ -170,7 +191,7 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(829, 18);
+            this.comboBox4.Location = new System.Drawing.Point(829, 28);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(108, 20);
             this.comboBox4.TabIndex = 9;
@@ -178,7 +199,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(714, 18);
+            this.comboBox3.Location = new System.Drawing.Point(714, 28);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(109, 20);
             this.comboBox3.TabIndex = 8;
@@ -186,7 +207,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(614, 18);
+            this.comboBox2.Location = new System.Drawing.Point(614, 28);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(94, 20);
             this.comboBox2.TabIndex = 7;
@@ -194,7 +215,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(502, 18);
+            this.comboBox1.Location = new System.Drawing.Point(502, 28);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(106, 20);
             this.comboBox1.TabIndex = 6;
@@ -202,7 +223,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(449, 21);
+            this.label3.Location = new System.Drawing.Point(449, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 5;
@@ -210,7 +231,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(312, 52);
+            this.button1.Location = new System.Drawing.Point(312, 62);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 28);
             this.button1.TabIndex = 4;
@@ -221,7 +242,7 @@
             // 
             this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(256, 15);
+            this.dateTimePicker2.Location = new System.Drawing.Point(256, 25);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(168, 21);
             this.dateTimePicker2.TabIndex = 3;
@@ -229,7 +250,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 21);
+            this.label2.Location = new System.Drawing.Point(231, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 12);
             this.label2.TabIndex = 2;
@@ -239,7 +260,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(65, 15);
+            this.dateTimePicker1.Location = new System.Drawing.Point(65, 25);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(159, 21);
             this.dateTimePicker1.TabIndex = 1;
@@ -247,7 +268,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 0;
@@ -259,11 +280,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 324);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 344);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1158, 422);
+            this.dataGridView1.Size = new System.Drawing.Size(1158, 451);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
             // groupBox2
             // 
@@ -343,6 +365,87 @@
             this.groupBox2.Size = new System.Drawing.Size(1158, 114);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // 血压75
+            // 
+            this.血压75.AutoSize = true;
+            this.血压75.Location = new System.Drawing.Point(1016, 86);
+            this.血压75.Name = "血压75";
+            this.血压75.Size = new System.Drawing.Size(11, 12);
+            this.血压75.TabIndex = 71;
+            this.血压75.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(956, 85);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "血压异常";
+            // 
+            // 血压7075
+            // 
+            this.血压7075.AutoSize = true;
+            this.血压7075.Location = new System.Drawing.Point(1016, 61);
+            this.血压7075.Name = "血压7075";
+            this.血压7075.Size = new System.Drawing.Size(11, 12);
+            this.血压7075.TabIndex = 69;
+            this.血压7075.Text = "0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(956, 61);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 68;
+            this.label17.Text = "血压异常";
+            // 
+            // 血压6570
+            // 
+            this.血压6570.AutoSize = true;
+            this.血压6570.Location = new System.Drawing.Point(1016, 39);
+            this.血压6570.Name = "血压6570";
+            this.血压6570.Size = new System.Drawing.Size(11, 12);
+            this.血压6570.TabIndex = 67;
+            this.血压6570.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(956, 39);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.TabIndex = 66;
+            this.label20.Text = "血压异常";
+            // 
+            // 血压064
+            // 
+            this.血压064.AutoSize = true;
+            this.血压064.Location = new System.Drawing.Point(1016, 13);
+            this.血压064.Name = "血压064";
+            this.血压064.Size = new System.Drawing.Size(11, 12);
+            this.血压064.TabIndex = 65;
+            this.血压064.Text = "0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(956, 13);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 12);
+            this.label24.TabIndex = 64;
+            this.label24.Text = "血压异常";
+            // 
+            // 统计查询
+            // 
+            this.统计查询.Location = new System.Drawing.Point(349, 75);
+            this.统计查询.Name = "统计查询";
+            this.统计查询.Size = new System.Drawing.Size(75, 28);
+            this.统计查询.TabIndex = 63;
+            this.统计查询.UseVisualStyleBackColor = true;
+            this.统计查询.Click += new System.EventHandler(this.统计查询_Click);
             // 
             // 生化75
             // 
@@ -905,101 +1008,40 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "报告统计";
             // 
-            // 统计查询
-            // 
-            this.统计查询.Location = new System.Drawing.Point(349, 75);
-            this.统计查询.Name = "统计查询";
-            this.统计查询.Size = new System.Drawing.Size(75, 28);
-            this.统计查询.TabIndex = 63;
-            this.统计查询.UseVisualStyleBackColor = true;
-            this.统计查询.Click += new System.EventHandler(this.统计查询_Click);
-            // 
-            // 血压75
-            // 
-            this.血压75.AutoSize = true;
-            this.血压75.Location = new System.Drawing.Point(1016, 86);
-            this.血压75.Name = "血压75";
-            this.血压75.Size = new System.Drawing.Size(11, 12);
-            this.血压75.TabIndex = 71;
-            this.血压75.Text = "0";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(956, 85);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 70;
-            this.label11.Text = "血压异常";
-            // 
-            // 血压7075
-            // 
-            this.血压7075.AutoSize = true;
-            this.血压7075.Location = new System.Drawing.Point(1016, 61);
-            this.血压7075.Name = "血压7075";
-            this.血压7075.Size = new System.Drawing.Size(11, 12);
-            this.血压7075.TabIndex = 69;
-            this.血压7075.Text = "0";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(956, 61);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
-            this.label17.TabIndex = 68;
-            this.label17.Text = "血压异常";
-            // 
-            // 血压6570
-            // 
-            this.血压6570.AutoSize = true;
-            this.血压6570.Location = new System.Drawing.Point(1016, 39);
-            this.血压6570.Name = "血压6570";
-            this.血压6570.Size = new System.Drawing.Size(11, 12);
-            this.血压6570.TabIndex = 67;
-            this.血压6570.Text = "0";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(956, 39);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 12);
-            this.label20.TabIndex = 66;
-            this.label20.Text = "血压异常";
-            // 
-            // 血压064
-            // 
-            this.血压064.AutoSize = true;
-            this.血压064.Location = new System.Drawing.Point(1016, 13);
-            this.血压064.Name = "血压064";
-            this.血压064.Size = new System.Drawing.Size(11, 12);
-            this.血压064.TabIndex = 65;
-            this.血压064.Text = "0";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(956, 13);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 12);
-            this.label24.TabIndex = 64;
-            this.label24.Text = "血压异常";
-            // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(1, 210);
+            this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.checkBox10);
+            this.groupBox3.Controls.Add(this.checkBox9);
+            this.groupBox3.Controls.Add(this.checkBox8);
+            this.groupBox3.Controls.Add(this.checkBox7);
+            this.groupBox3.Controls.Add(this.checkBox6);
+            this.groupBox3.Controls.Add(this.checkBox5);
+            this.groupBox3.Controls.Add(this.checkBox4);
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.checkBox2);
+            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.版式);
+            this.groupBox3.Location = new System.Drawing.Point(1, 239);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1158, 108);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "报告导出-导出格式";
             // 
             // pagerControl1
             // 
             this.pagerControl1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pagerControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(78)))), ((int)(((byte)(151)))));
             this.pagerControl1.JumpText = "Go";
-            this.pagerControl1.Location = new System.Drawing.Point(1, 746);
+            this.pagerControl1.Location = new System.Drawing.Point(1, 770);
             this.pagerControl1.Name = "pagerControl1";
             this.pagerControl1.PageIndex = 1;
             this.pagerControl1.PageSize = 100;
@@ -1007,11 +1049,198 @@
             this.pagerControl1.Size = new System.Drawing.Size(1158, 29);
             this.pagerControl1.TabIndex = 4;
             // 
+            // 版式
+            // 
+            this.版式.AutoSize = true;
+            this.版式.Location = new System.Drawing.Point(14, 29);
+            this.版式.Name = "版式";
+            this.版式.Size = new System.Drawing.Size(41, 12);
+            this.版式.TabIndex = 0;
+            this.版式.Text = "版式：";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(62, 29);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(59, 16);
+            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "标准版";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(62, 51);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(59, 16);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "特色版";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(250, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "格式：";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(288, 29);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(48, 16);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "封面";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(371, 30);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(72, 16);
+            this.checkBox2.TabIndex = 5;
+            this.checkBox2.Text = "个人信息";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(647, 28);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(156, 16);
+            this.checkBox3.TabIndex = 6;
+            this.checkBox3.Text = "老年人生活自理能力评估";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(455, 29);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(84, 16);
+            this.checkBox4.TabIndex = 6;
+            this.checkBox4.Text = "化验报告单";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(551, 28);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(84, 16);
+            this.checkBox5.TabIndex = 7;
+            this.checkBox5.Text = "健康体检表";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(288, 64);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(72, 16);
+            this.checkBox6.TabIndex = 8;
+            this.checkBox6.Text = "中医体质";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(371, 64);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(60, 16);
+            this.checkBox7.TabIndex = 9;
+            this.checkBox7.Text = "心电图";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(455, 64);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(42, 16);
+            this.checkBox8.TabIndex = 10;
+            this.checkBox8.Text = "B超";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(551, 64);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(48, 16);
+            this.checkBox9.TabIndex = 11;
+            this.checkBox9.Text = "结果";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(647, 64);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(84, 16);
+            this.checkBox10.TabIndex = 12;
+            this.checkBox10.Text = "综合报告单";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(809, 79);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "报告导出";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(917, 79);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "数据上传";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1018, 79);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "查看报告";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(923, 28);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(35, 16);
+            this.radioButton3.TabIndex = 17;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "A4";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(861, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "纸张类型：";
+            // 
             // examinatReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 774);
+            this.ClientSize = new System.Drawing.Size(1158, 799);
             this.Controls.Add(this.pagerControl1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1026,6 +1255,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1119,5 +1350,24 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox groupBox3;
         private control.PagerControl pagerControl1;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label 版式;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label label6;
     }
 }

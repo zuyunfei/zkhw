@@ -141,16 +141,16 @@ select id From zkhw_tj_bgdc Order By id limit {pageindex},1
         /// <param name="data"></param>
         private void queryExaminatProgress(DataTable data)
         {
-            //if (dataGridView1.DataSource != null)
-            //{
-            //    DataTable dts = (DataTable)dataGridView1.DataSource;
-            //    dts.Rows.Clear();
-            //    dataGridView1.DataSource = dt;
-            //}
-            //else
-            //{
-            //    dataGridView1.Rows.Clear();
-            //}
+            if (dataGridView1.DataSource != null)
+            {
+                DataTable dts = (DataTable)dataGridView1.DataSource;
+                dts.Rows.Clear();
+                dataGridView1.DataSource = dts;
+            }
+            else
+            {
+                dataGridView1.Rows.Clear();
+            }
 
             if (data != null)
             {
@@ -165,8 +165,12 @@ select id From zkhw_tj_bgdc Order By id limit {pageindex},1
                 this.dataGridView1.Columns[7].HeaderCell.Value = "是否同步";
                 this.dataGridView1.Columns[8].HeaderCell.Value = "报告生产时间";
 
-                //DataGridViewButtonColumn DGBC = new DataGridViewButtonColumn();
-                //dataGridView1.Columns.Add(DGBC);
+                //DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                //btn.Name = "btnModify";
+                //btn.HeaderText = "修改";
+                //btn.DefaultCellStyle.NullValue = "修改";
+                //dataGridView1.Columns.Add(btn);
+
 
                 this.dataGridView1.RowsDefaultCellStyle.ForeColor = Color.Black;
                 this.dataGridView1.AllowUserToAddRows = false;
@@ -174,10 +178,10 @@ select id From zkhw_tj_bgdc Order By id limit {pageindex},1
                 this.dataGridView1.Columns[0].Visible = false;
 
                 this.dataGridView1.ReadOnly = true;
-                for (int i = 0; i < this.dataGridView1.Columns.Count; i++)
-                {
-                    this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-                }
+                //for (int i = 0; i < this.dataGridView1.Columns.Count; i++)
+                //{
+                //    this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //}
             }
 
         }
@@ -401,6 +405,21 @@ GROUP BY XingBie";
                     }
                 }
             }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            //自动编号，与数据无关
+            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X,
+               e.RowBounds.Location.Y,
+               dataGridView1.RowHeadersWidth - 4,
+               e.RowBounds.Height);
+            TextRenderer.DrawText(e.Graphics,
+                  (e.RowIndex + 1).ToString(),
+                   dataGridView1.RowHeadersDefaultCellStyle.Font,
+                   rectangle,
+                   dataGridView1.RowHeadersDefaultCellStyle.ForeColor,
+                   TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
     }
 }
