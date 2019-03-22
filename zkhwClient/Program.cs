@@ -23,7 +23,8 @@ namespace zkhwClient
                 Application.EnableVisualStyles();   //这两行实现   XP   可视风格   
                 Application.DoEvents();             //这两行实现   XP   可视风格
                                                     //Application.Run(new frmLogin());
-                Application.Run(new zkhwClient.view.PublicHealthView.examinatReport());
+                                                    //Application.Run(new zkhwClient.view.PublicHealthView.examinatReport());
+                Application.Run(new zkhwClient.view.HomeDoctorSigningView.teamMembers());
                 //Main   为你程序的主窗体，如果是控制台程序不用这句   
                 mutex.ReleaseMutex();
             }
