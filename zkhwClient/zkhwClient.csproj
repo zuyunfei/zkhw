@@ -92,16 +92,21 @@
     <ApplicationIcon>zkhw.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp">
-      <HintPath>..\..\..\..\公司6.6\2.0.6.6源码\展示端\MyClient\Client\bin\x86\Debug\itextsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\展示端\MyClient\Client\bin\x86\Debug\MySql.Data.dll</HintPath>
+      <HintPath>dll\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="MySqlBackup">
-      <HintPath>..\..\..\..\..\Desktop\华展POS收银系统项目\展示端\MyClient\Client\bin\x86\Debug\MySqlBackup.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup, Version=2.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\MySqlBackup.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -527,6 +532,18 @@
     <Content Include="bin\x86\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
     <Content Include="bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="dll\itextsharp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll\Microsoft.ReportViewer.WinForms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll\MySql.Data.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll\MySqlBackup.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="zkhw.ico" />
   </ItemGroup>
   <ItemGroup>

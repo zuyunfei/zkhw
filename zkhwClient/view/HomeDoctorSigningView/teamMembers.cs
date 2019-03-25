@@ -41,9 +41,9 @@ namespace zkhwClient.view.HomeDoctorSigningView
             while (groupBox1.Controls.Count != 0)
             {
                 groupBox1.Controls.Clear();
-                groupBox1.Dispose();
+                //groupBox1.Dispose();
             }
-            string sql = $"select id,ZhiWei,ZhiWu,XingMing,LianXiFangShi from zkhw_qy_tdcy where FID='{fid}'";
+            string sql = $"select id,ZhiWei,ZhiWu,XingMing,LianXiFangShi from zkhw_qy_tdcy where FuID='{fid}' ORDER  BY ZhiWei asc";
             DataSet datas = DbHelperMySQL.Query(sql);
             if (datas != null && datas.Tables.Count > 0)
             {
@@ -57,37 +57,36 @@ namespace zkhwClient.view.HomeDoctorSigningView
                     {
                         row++;
                     }
-                    x = 34 + i % 5 * 25;
-                    y = 34 + row * 363;
+                    x = 26 + i % 5 * 198;
+                    y = 26 + row * 270;
                     GroupBox groubox = new GroupBox();
                     groubox.Text = "";
-                    groubox.Size = new Size(243, 322);
+                    groubox.Size = new Size(182, 258);
                     groubox.Location = new Point(x, y);
                     #region 设置groupbox中控件
                     label = new Label();
-                    label.Location = new Point(86, 21);
+                    label.Location = new Point(64, 17);
                     label.Font = new Font("宋体", 15, FontStyle.Bold);
                     label.Text = data.Rows[i]["XingMing"].ToString();
                     groubox.Controls.Add(label);
+
                     label = new Label();
-                    label.Location = new Point(88, 63);
+                    label.Location = new Point(66, 50);
                     label.Text = data.Rows[i]["ZhiWei"].ToString();
                     groubox.Controls.Add(label);
+
                     label = new Label();
-                    label.Location = new Point(6, 228);
-                    label.Text = "联系方式：";
+                    label.Location = new Point(21, 182);
+                    label.AutoSize = true;
+                    label.Text = $"联系方式：{data.Rows[i]["LianXiFangShi"].ToString()}";
                     groubox.Controls.Add(label);
+
                     label = new Label();
-                    label.Location = new Point(85, 228);
-                    label.Text = data.Rows[i]["LianXiFangShi"].ToString();
+                    label.AutoSize = true;
+                    label.Location = new Point(45, 208);
+                    label.Text = $"职务：{data.Rows[i]["ZhiWu"].ToString()}";
                     groubox.Controls.Add(label);
-                    label = new Label();
-                    label.Location = new Point(36, 26);
-                    label.Text = "职务：";
-                    groubox.Controls.Add(label);
-                    label = new Label();
-                    label.Location = new Point(82, 26);
-                    label.Text = data.Rows[i]["ZhiWu"].ToString();
+
                     groubox.Controls.Add(label);
                     #endregion
                     groupBox1.Controls.Add(groubox);
@@ -112,8 +111,11 @@ namespace zkhwClient.view.HomeDoctorSigningView
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string fid = ((ComboBox)sender).SelectedValue?.ToString();
-            GroupBoxBin(fid);
+            string fid = comboBox1.SelectedValue?.ToString();
+            if (!string.IsNullOrWhiteSpace(fid) && fid.Length == 36)
+            {
+                GroupBoxBin(fid);
+            }
         }
     }
     public class TDMC
