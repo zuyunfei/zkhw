@@ -46,13 +46,14 @@ GROUP BY XingBie
             this.统计查询.BackgroundImage = Image.FromFile(@str + "/images/check.png");
 
             pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
-
-            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out int count));
+            int count = 0;
+            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out  count));
             pagerControl1.DrawControl(count);
         }
         void pagerControl1_OnPageChanged(object sender, EventArgs e)
         {
-            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out int count));
+            int count = 0;
+            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out  count));
             pagerControl1.DrawControl(count);
         }
 
@@ -193,7 +194,8 @@ select id From zkhw_tj_bgdc Order By id limit {pageindex},1
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out int count));
+            int count = 0;
+            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out  count));
             pagerControl1.DrawControl(count);
         }
 
