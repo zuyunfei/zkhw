@@ -28,10 +28,6 @@ namespace zkhwClient
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //注册窗体关闭事件。
-            this.FormClosing += new FormClosingEventHandler(MainForm_Closing);
-
-
             this.label1.Text = "一体化查体车  中科弘卫";
             this.label1.Font = new Font("微软雅黑", 13F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(134)));
 
@@ -90,11 +86,7 @@ namespace zkhwClient
             }
 
         }
-        //点击关闭按钮时触发此函数。
-        private void MainForm_Closing(object sender, CancelEventArgs e)
-        {
-            Application.Exit();//退出程序
-        }
+
         private void 用户管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             userManage um = new userManage();
