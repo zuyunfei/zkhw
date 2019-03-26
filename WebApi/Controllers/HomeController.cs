@@ -2,29 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
+ 
 
 namespace WebApi.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ApiController
     {
-        public ActionResult Index()
+        [System.Web.Http.HttpPost]
+        public string Post(string id)
         {
-            return View();
+            var postInfo2 = "ok0";
+
+          
+            return postInfo2;
         }
-
-        public ActionResult About()
+        public string Get(string id)
         {
-            ViewBag.Message = "Your application description page.";
+            var postInfo2 = "ok0";
 
-            return View();
-        }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return postInfo2;
         }
     }
 }
