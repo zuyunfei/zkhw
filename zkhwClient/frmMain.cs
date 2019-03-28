@@ -61,7 +61,7 @@ namespace zkhwClient
                             pR.Show();
                         }
                         picb[i].Size = new Size(216, 40);//大   小
-                        picb[i].DoubleClick += new EventHandler(picb_DouClick);
+                        picb[i].Click += new EventHandler(picb_DouClick);
                         picb[i].Tag = item.DropDownItems[i].Text;
 
                         TextBox rt = new TextBox();
@@ -167,7 +167,7 @@ namespace zkhwClient
                             pR.Show();
                         }
                         picb[i].Size = new Size(216, 40);//大   小
-                        picb[i].DoubleClick += new EventHandler(picb_DouClick);
+                        picb[i].Click += new EventHandler(picb_DouClick);
                         picb[i].Tag = item.DropDownItems[i].Text;
 
                         TextBox rt = new TextBox();
@@ -216,7 +216,7 @@ namespace zkhwClient
                             pR.Show();
                         }
                         picb[i].Size = new Size(216, 40);//大   小
-                        picb[i].DoubleClick += new EventHandler(picb_DouClick);
+                        picb[i].Click += new EventHandler(picb_DouClick);
                         picb[i].Tag = item.DropDownItems[i].Text;
 
                         TextBox rt = new TextBox();
@@ -622,7 +622,7 @@ namespace zkhwClient
                             pR.Show();
                         }
                         picb[i].Size = new Size(216, 40);//大   小
-                        picb[i].DoubleClick += new EventHandler(picb_DouClick);
+                        picb[i].Click += new EventHandler(picb_DouClick);
                         picb[i].Tag = item.DropDownItems[i].Text;
 
                         TextBox rt = new TextBox();
@@ -672,7 +672,7 @@ namespace zkhwClient
                             pR.Show();
                         }
                         picb[i].Size = new Size(216, 40);//大   小
-                        picb[i].DoubleClick += new EventHandler(picb_DouClick);
+                        picb[i].Click += new EventHandler(picb_DouClick);
                         picb[i].Tag = item.DropDownItems[i].Text;
 
                         TextBox rt = new TextBox();
@@ -722,7 +722,7 @@ namespace zkhwClient
                             pR.Show();
                         }
                         picb[i].Size = new Size(216, 40);//大   小
-                        picb[i].DoubleClick += new EventHandler(picb_DouClick);
+                        picb[i].Click += new EventHandler(picb_DouClick);
                         picb[i].Tag = item.DropDownItems[i].Text;
 
                         TextBox rt = new TextBox();
