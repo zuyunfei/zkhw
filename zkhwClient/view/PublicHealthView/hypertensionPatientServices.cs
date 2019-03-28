@@ -11,17 +11,14 @@ namespace zkhwClient.view.PublicHealthView
 {
     public partial class hypertensionPatientServices : Form
     {
-
-
         service.hypertensionPatientService hypertensionPatient = new service.hypertensionPatientService();
-
-
+        public string patientName = "";
+        public string Cardcode = "";
+        public string aichive_no = "";
         public hypertensionPatientServices()
         {
             InitializeComponent();
         }
-
-
         private void hypertensionPatientServices_Load(object sender, EventArgs e)
         {
 
@@ -33,17 +30,18 @@ namespace zkhwClient.view.PublicHealthView
 
             queryhypertensionPatientServices();
         }
-
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            patientName = this.textBox1.Text;
+            Cardcode = this.textBox2.Text;
+            aichive_no = this.textBox2.Text;
+            queryhypertensionPatientServices();
+        }
         //高血压随访记录历史表  关联传参调查询的方法
-        public string patientName = "";
-        public string patientAge = "";
-        public string create_name = "";
-        public string dataSate = "";
         private void queryhypertensionPatientServices()
         {
             this.dataGridView1.DataSource = null;
-            DataTable dt = hypertensionPatient.queryHypertensionPatient(patientName, patientAge, create_name, dataSate);
+            DataTable dt = hypertensionPatient.queryHypertensionPatient(patientName, Cardcode, aichive_no);
             this.dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "姓名";
@@ -209,6 +207,5 @@ namespace zkhwClient.view.PublicHealthView
                 }
             }
         }
-
     }
 }
