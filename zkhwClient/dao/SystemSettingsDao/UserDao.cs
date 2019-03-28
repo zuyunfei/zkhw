@@ -2,7 +2,6 @@
 using System.Data;
 using zkhwClient.bean;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace zkhwClient.dao
 {
@@ -10,12 +9,7 @@ namespace zkhwClient.dao
     {
         public DataTable exists(UserInfo user)
         {
-            //string despwd = "";
-            //if (user.Pwd != null&&!"".Equals(user.Pwd)) {
-            //    despwd = MemoryPassword.MyEncrypt.EncryptDES(user.Pwd);
-            //}
-            String sql = "select id,name from zkhw_user_info where username = '" + user.UserName + "'AND password = '" + user.Pwd + "'";
-
+            String sql = "select * from zkhw_user_info where username = '" + user.UserName + "'AND password = '" + user.Password + "'";
             DataSet ds = new DataSet();
             ds.Clear();
             ds = DbHelperMySQL.Query(sql);
@@ -24,13 +18,13 @@ namespace zkhwClient.dao
         public bool updatePassWord(bean.UserInfo user)
         {
             int ret = 0;
-            String sql = "update zkhw_user_info set password='" + user.Pwd + "' where username = '" + user.UserName + "'";
+            String sql = "update zkhw_user_info set password='" + user.Password + "' where username = '" + user.UserName + "'";
             ret = DbHelperMySQL.ExecuteSql(sql);
             return ret == 0 ? false : true;
         }
-        public DataTable listUser()  
+        public DataTable listUser()
         {
-            String sql = "select username name,password from zkhw_user_info where 1=1 and username != 'admin' ";
+            String sql = "select * from zkhw_user_info";
             DataSet ds = new DataSet();
             ds.Clear();
             ds = DbHelperMySQL.Query(sql);
@@ -38,20 +32,16 @@ namespace zkhwClient.dao
         }
         public bool addUser(bean.UserInfo ui)
         {
-            if (ui.Enable==0) {
-                ui.Enable = 1;
-            }
             string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             int rt = 0;
-            String sql = "select * from userinfo where name='"+ui.UserName+"'";
+            String sql = "select * from zkhw_user_info where name='" + ui.UserName + "'";
             DataSet ds = new DataSet();
             ds.Clear();
             ds = DbHelperMySQL.Query(sql);
-            //string id = Result.GetNewId();
             if (ds.Tables[0].Rows.Count <= 0)
             {
-                string sql1 = "insert into zkhw_user_info (name,pwd,enable,createTime,power) values ('" + ui.UserName + "', '" + ui.Pwd + "', '" + ui.Enable + "', '" + time + "', '" + ui.Power + "')";
-                rt = DbHelperMySQL.ExecuteSql(sql1);              
+                string sql1 = "insert into zkhw_user_info (username,password,lasttime,loginnumber,depaid,name,type) values ('" + ui.UserName + "', '" + ui.Password + "', '" + ui.Lasttime + "', '" + ui.Loginnumber + "', '" + ui.Depaid + "', '" + ui.Name + "', '" + ui.Type + "')";
+                rt = DbHelperMySQL.ExecuteSql(sql1);
             }
 
             return rt == 0 ? false : true;
@@ -59,7 +49,7 @@ namespace zkhwClient.dao
         public bool updateUser(bean.UserInfo ui)
         {
             int ret = 0;
-            String sql = "update zkhw_user_info set name='" + ui.UserName + "',enable='" + ui.Enable + "',power='"+ui.Power+"' where id='" +ui.Id+ "'";
+            String sql = "update zkhw_user_info set username='" + ui.UserName + "' where id='" + ui.Id + "'";
             ret = DbHelperMySQL.ExecuteSql(sql);
             return ret == 0 ? false : true;
         }

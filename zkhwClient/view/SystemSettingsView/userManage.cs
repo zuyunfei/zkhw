@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace zkhwClient
 {
-    public partial class userManage: Form
+    public partial class userManage : Form
     {
         service.UserService us = new service.UserService();
         public userManage()
@@ -45,7 +45,7 @@ namespace zkhwClient
             dd.Columns.Add("neir", typeof(string));
             foreach (DataRow rows in dd.Rows)
             {
-                if (rows[1].ToString() == "user")
+                if (rows[1].ToString() == "admin")
                 {
                     rows["neir"] = "管理员";
                 }
@@ -59,10 +59,11 @@ namespace zkhwClient
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "用户名称(登录用)";
             this.dataGridView1.Columns[2].HeaderCell.Value = "密码";
-            this.dataGridView1.Columns[3].HeaderCell.Value = "用户状态";
-            this.dataGridView1.Columns[4].HeaderCell.Value = "创建时间";
-            this.dataGridView1.Columns[5].Visible = false;
-            this.dataGridView1.Columns[6].HeaderCell.Value = "用户说明";
+            this.dataGridView1.Columns[3].HeaderCell.Value = "lasttime";
+            this.dataGridView1.Columns[4].HeaderCell.Value = "loginnumber";
+            this.dataGridView1.Columns[5].Visible = false;//depaid
+            this.dataGridView1.Columns[6].HeaderCell.Value = "name";
+            this.dataGridView1.Columns[7].HeaderCell.Value = "name";
             this.dataGridView1.Columns[1].Width = 110;
             this.dataGridView1.Columns[4].Width = 130;
             this.dataGridView1.RowsDefaultCellStyle.ForeColor = Color.Black;
@@ -87,7 +88,6 @@ namespace zkhwClient
             string id = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             string name = this.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             string enable = this.dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            string power = this.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
             if (name == "user")
             {
                 MessageBox.Show("管理员账号不能被修改！");
@@ -98,21 +98,6 @@ namespace zkhwClient
                 updateUser up = new updateUser();
                 up.textBox1.Text = name;
                 up.textBox2.Text = id;
-                if (enable == "启用") { up.comboBox1.Text = "1"; } else { up.comboBox1.Text = "0"; }
-                List<string> list = power.Split(',').ToList();
-                foreach (Control ctr in up.groupBox2.Controls)
-                {
-                    //判断该控件是不是CheckBox
-                    if (ctr is CheckBox)
-                    {
-                        //将ctr转换成CheckBox并赋值给ck
-                        CheckBox ck = ctr as CheckBox;
-                        if (list.Contains(ck.Text))
-                        {
-                            ck.Checked = true;
-                        }
-                    }
-                }
 
                 if (up.ShowDialog() == DialogResult.OK)
                 {

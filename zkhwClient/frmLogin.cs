@@ -83,8 +83,8 @@ namespace zkhwClient
             this.pictureBox1.Image = Image.FromFile(@str + "/images/logo.png");
             DataTable dd = us.listUser();
             this.comboBox1.DataSource = dd;//绑定数据源
-            this.comboBox1.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox1.ValueMember = "name";//操作时获取的值 
+            this.comboBox1.DisplayMember = "username";//显示给用户的数据集表项
+            this.comboBox1.ValueMember = "username";//操作时获取的值 
         }
     }
 }

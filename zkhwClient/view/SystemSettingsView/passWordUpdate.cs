@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace zkhwClient
 {
-    public partial class passWordUpdate: Form
+    public partial class passWordUpdate : Form
     {
         public passWordUpdate()
         {
@@ -44,7 +44,9 @@ namespace zkhwClient
             {
                 if (frmLogin.passw.Equals(h1) && p1.Equals(p2))
                 {
-                    bool ret = service.UserService.updatePassWord(frmLogin.name, MemoryPassword.MyEncrypt.EncryptDES(p1));
+                    //bool ret = service.UserService.updatePassWord(frmLogin.name, MemoryPassword.MyEncrypt.EncryptDES(p1));
+                    bool ret = service.UserService.updatePassWord(frmLogin.name, p1);
+
                     if (ret)
                     {
                         MessageBox.Show("密码修改成功，下次登录需要使用新密码登录！");

@@ -9,43 +9,16 @@ namespace zkhwClient.bean
     class UserInfo
     {
         private String id;
-        /// <summary>
-        /// 用户名
-        /// </summary>
         private String userName;
+        private String password;
+        private String lasttime;
+        private String loginnumber;
+        private String depaid;
+        private String name;
+        private String type;
 
-        /// <summary>
-        /// 密码
-        /// </summary>
-        private String pwd;
 
-        /// <summary>
-        /// 是否停用
-        /// </summary>
-        private int enable;
 
-        /// <summary>
-        /// 角色权限
-        /// </summary>
-        private int auth;
-
-        /// <summary>
-        /// 权限
-        /// </summary>
-        private string power;
-
-        public string Power
-        {
-            get
-            {
-                return power;
-            }
-
-            set
-            {
-                power = value;
-            }
-        }
         public string Id
         {
             get
@@ -72,42 +45,76 @@ namespace zkhwClient.bean
             }
         }
 
-        public string Pwd
+        public string Password
         {
             get
             {
-                return pwd;
+                return password;
             }
 
             set
             {
-                pwd = value;
+                password = value;
             }
         }
-
-        public int Enable
+        public string Lasttime
         {
             get
             {
-                return enable;
+                return lasttime;
             }
 
             set
             {
-                enable = value;
+                lasttime = value;
             }
         }
-
-        public int Auth
+        public string Loginnumber
         {
             get
             {
-                return auth;
+                return loginnumber;
             }
 
             set
             {
-                auth = value;
+                loginnumber = value;
+            }
+        }
+        public string Depaid
+        {
+            get
+            {
+                return depaid;
+            }
+
+            set
+            {
+                depaid = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
             }
         }
     }

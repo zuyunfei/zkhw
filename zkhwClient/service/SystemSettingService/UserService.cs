@@ -14,15 +14,15 @@ namespace zkhwClient.service
         {
             bean.UserInfo userinfo = new bean.UserInfo();
             userinfo.UserName = name;
-            userinfo.Pwd = password;
-            
+            userinfo.Password = password;
+
             return user.exists(userinfo);
         }
         public static bool updatePassWord(string name, string password)
         {
             bean.UserInfo userinfo = new bean.UserInfo();
             userinfo.UserName = name;
-            userinfo.Pwd = password;
+            userinfo.Password = password;
             return user.updatePassWord(userinfo);
         }
         public DataTable listUser()

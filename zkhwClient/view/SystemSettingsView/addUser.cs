@@ -40,84 +40,44 @@ namespace zkhwClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name = this.textBox1.Text;
+            string userName = this.textBox1.Text;
             string pwd = this.textBox2.Text;
             string pwd1 = this.textBox3.Text;
-            string power = "";
+
+            string lasttime = DateTime.Now.ToString();
+            string loginnumber = "1";
+            string depaid = "1";
+            string name = "1";
+            string type = "1";
+
 
             if (name != null && !"".Equals(name) && pwd.Equals(pwd1))
             {
-                foreach (Control ctr in this.groupBox2.Controls)
-                {
-                    //判断该控件是不是CheckBox
-                    if (ctr is CheckBox)
-                    {
-                        //将ctr转换成CheckBox并赋值给ck
-                        CheckBox ck = ctr as CheckBox;
-                        if (ck.Checked)
-                        {
-                            power += "," + ck.Text;
-                        }
-                    }
-                }
+                bean.UserInfo ui = new bean.UserInfo();
+                ui.UserName = userName;
+                ui.Password = pwd;
+                ui.Lasttime = lasttime;
+                ui.Loginnumber = loginnumber;
+                ui.Depaid = depaid;
+                ui.Name = name;
+                ui.Type = type;
 
 
-                if (power != null && !"".Equals(power))
+                service.UserService us = new service.UserService();
+                bool istrue = us.addUser(ui);
+                if (istrue)
                 {
-                    power = power.Substring(1);
-                    bean.UserInfo ui = new bean.UserInfo();
-                    ui.UserName = name;
-                    ui.Pwd = MemoryPassword.MyEncrypt.EncryptDES(pwd);
-                    ui.Power = power;
-                    ui.Enable = 1;
-                    service.UserService us = new service.UserService();
-                    bool istrue = us.addUser(ui);
-                    if (istrue)
-                    {
-                        this.Hide();
-                        this.DialogResult = DialogResult.OK;
-                    }
-                    else
-                    {
-                        MessageBox.Show("用户名已重复，请重新输入！");
-                    }
+                    this.Hide();
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
-                    MessageBox.Show("未给新用户设置权限！");
+                    MessageBox.Show("用户名已重复，请重新输入！");
                 }
             }
             else
             {
                 MessageBox.Show("用户名或密码不能为空或两次密码输入不一致！");
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            foreach (Control ctr in this.groupBox2.Controls)
-            {
-                //判断该控件是不是CheckBox
-                if (ctr is CheckBox)
-                {
-                    //将ctr转换成CheckBox并赋值给ck
-                    CheckBox ck = ctr as CheckBox;
-                    ck.Checked = true;
-                }
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            foreach (Control ctr in this.groupBox2.Controls)
-            {
-                //判断该控件是不是CheckBox
-                if (ctr is CheckBox)
-                {
-                    //将ctr转换成CheckBox并赋值给ck
-                    CheckBox ck = ctr as CheckBox;
-                    ck.Checked = false;
-                }
             }
         }
     }
