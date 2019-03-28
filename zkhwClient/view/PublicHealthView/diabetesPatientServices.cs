@@ -11,16 +11,15 @@ namespace zkhwClient.view.PublicHealthView
 {
     public partial class diabetesPatientServices : Form
     {
-
         service.diabetesPatientService diabetesPatient = new service.diabetesPatientService();
-
-
+        //高血压随访记录历史表  关联传参调查询的方法
+        public string name = "";
+        public string id_number = "";
+        public string aichive_no = "";
         public diabetesPatientServices()
         {
             InitializeComponent();
         }
-
-
         private void diabetesPatientServices_Load(object sender, EventArgs e)
         {
 
@@ -32,17 +31,17 @@ namespace zkhwClient.view.PublicHealthView
 
             querydiabetesPatientServices();
         }
-
-
-        //高血压随访记录历史表  关联传参调查询的方法
-        public string patientName = "";
-        public string id_number = "";
-        public string create_name = "";
-        public string dataSate = "";
+        private void button5_Click(object sender, EventArgs e)
+        {
+            name = this.textBox1.Text;
+            id_number = this.textBox2.Text;
+            aichive_no = this.textBox2.Text;
+            querydiabetesPatientServices();
+        }
         private void querydiabetesPatientServices()
         {
             this.dataGridView1.DataSource = null;
-            DataTable dt = diabetesPatient.querydiabetesPatient(patientName, id_number, create_name, dataSate);
+            DataTable dt = diabetesPatient.querydiabetesPatient(name, id_number, aichive_no);
             this.dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "姓名";
@@ -208,6 +207,5 @@ namespace zkhwClient.view.PublicHealthView
                 }
             }
         }
-
     }
 }
