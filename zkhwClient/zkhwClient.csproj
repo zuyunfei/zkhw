@@ -503,10 +503,6 @@
     <None Include="bin\Debug\Huazhan.vshost.exe.manifest" />
     <None Include="bin\x86\Debug\fonts\simhei.ttf" />
     <None Include="bin\x86\Debug\fonts\SIMYOU.TTF" />
-    <None Include="bin\x86\Debug\Huazhan.exe.config" />
-    <None Include="bin\x86\Debug\Huazhan.vshost.exe.config" />
-    <None Include="bin\x86\Debug\HuazhanPos.vshost.exe.config" />
-    <None Include="bin\x86\Debug\HuazhanPos.vshost.exe.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -542,13 +538,9 @@
     <Content Include="bin\Debug\MySql.Data.dll" />
     <Content Include="bin\Debug\MySqlBackup.dll" />
     <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\x86\Debug\config.xml" />
     <Content Include="bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll" />
-    <Content Include="bin\x86\Debug\Huazhan.exe" />
-    <Content Include="bin\x86\Debug\Huazhan.pdb" />
-    <Content Include="bin\x86\Debug\Huazhan.vshost.exe" />
     <Content Include="bin\x86\Debug\images\about.png" />
     <Content Include="bin\x86\Debug\images\assign.png" />
     <Content Include="bin\x86\Debug\images\cancel.png" />
@@ -576,14 +568,10 @@
     <Content Include="bin\x86\Debug\images\tuichu.png" />
     <Content Include="bin\x86\Debug\images\update.png" />
     <Content Include="bin\x86\Debug\images\xzwj.png" />
-    <Content Include="bin\x86\Debug\itextsharp.dll" />
+    <Content Include="bin\x86\Debug\images\身份证样图.png" />
     <Content Include="bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll" />
-    <Content Include="bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll" />
-    <Content Include="bin\x86\Debug\Microsoft.SqlServer.Types.dll" />
-    <Content Include="bin\x86\Debug\MySql.Data.dll" />
-    <Content Include="bin\x86\Debug\MySqlBackup.dll" />
     <Content Include="bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll" />
     <Content Include="bin\x86\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
