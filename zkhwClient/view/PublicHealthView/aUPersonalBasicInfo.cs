@@ -1,0 +1,236 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace zkhwClient.view.PublicHealthView
+{
+    public partial class aUPersonalBasicInfo : Form
+    {
+
+        service.personalBasicInfoService personalBasicInfoService = new service.personalBasicInfoService();
+        public string id = "";
+        public aUPersonalBasicInfo()
+        {
+            InitializeComponent();
+        }
+        private void aUHypertensionPatientServices_Load(object sender, EventArgs e)
+        {
+            this.label47.ForeColor = Color.SkyBlue;
+            label47.Font = new Font("微软雅黑", 20F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(134)));
+            label47.Left = (this.panel1.Width - this.label47.Width) / 2;
+            label47.BringToFront();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            bean.resident_base_infoBean resident_base_infoBean = new bean.resident_base_infoBean();
+
+            resident_base_infoBean.name = this.textBox1.Text.Replace(" ", "");
+            resident_base_infoBean.aichive_no = this.textBox2.Text.Replace(" ", "");
+            resident_base_infoBean.pb_archive = this.textBox2.Text.Replace(" ", "");
+            if (this.radioButton1.Checked == true) { resident_base_infoBean.sex = this.radioButton1.Text; };
+            if (this.radioButton2.Checked == true) { resident_base_infoBean.sex = this.radioButton2.Text; };
+            if (this.radioButton3.Checked == true) { resident_base_infoBean.sex = this.radioButton3.Text; };
+            if (this.radioButton25.Checked == true) { resident_base_infoBean.sex = this.radioButton25.Text; };
+            resident_base_infoBean.birthday = this.dateTimePicker1.Value.ToString();
+            resident_base_infoBean.id_number = this.textBox12.Text.Replace(" ", "");
+            resident_base_infoBean.company = this.textBox14.Text.Replace(" ", "");
+            resident_base_infoBean.phone = this.textBox16.Text.Replace(" ", "");
+            resident_base_infoBean.link_name = this.textBox18.Text.Replace(" ", "");
+            resident_base_infoBean.link_phone = this.textBox20.Text.Replace(" ", "");
+            if (this.radioButton4.Checked == true) { resident_base_infoBean.resident_type = this.radioButton4.Text; };
+            if (this.radioButton5.Checked == true) { resident_base_infoBean.resident_type = this.radioButton5.Text; };
+
+            if (this.radioButton6.Checked == true) { resident_base_infoBean.nation = this.radioButton6.Text; };
+            if (this.radioButton7.Checked == true) { resident_base_infoBean.nation = this.radioButton7.Text; };
+
+            if (this.radioButton8.Checked == true) { resident_base_infoBean.blood_group = this.radioButton8.Text; };
+            if (this.radioButton9.Checked == true) { resident_base_infoBean.blood_group = this.radioButton9.Text; };
+            if (this.radioButton10.Checked == true) { resident_base_infoBean.blood_group = this.radioButton10.Text; };
+            if (this.radioButton11.Checked == true) { resident_base_infoBean.blood_group = this.radioButton11.Text; };
+            if (this.radioButton12.Checked == true) { resident_base_infoBean.blood_group = this.radioButton12.Text; };
+
+            if (this.radioButton13.Checked == true) { resident_base_infoBean.blood_rh = this.radioButton13.Text; };
+            if (this.radioButton14.Checked == true) { resident_base_infoBean.blood_rh = this.radioButton14.Text; };
+            if (this.radioButton15.Checked == true) { resident_base_infoBean.blood_rh = this.radioButton15.Text; };
+
+            if (this.radioButton22.Checked == true) { resident_base_infoBean.education = this.radioButton22.Text; };
+            if (this.radioButton23.Checked == true) { resident_base_infoBean.education = this.radioButton23.Text; };
+            if (this.radioButton24.Checked == true) { resident_base_infoBean.education = this.radioButton24.Text; };
+            if (this.radioButton26.Checked == true) { resident_base_infoBean.education = this.radioButton26.Text; };
+            if (this.radioButton27.Checked == true) { resident_base_infoBean.education = this.radioButton27.Text; };
+            if (this.radioButton28.Checked == true) { resident_base_infoBean.education = this.radioButton28.Text; };
+            if (this.radioButton29.Checked == true) { resident_base_infoBean.education = this.radioButton29.Text; };
+            if (this.radioButton30.Checked == true) { resident_base_infoBean.education = this.radioButton30.Text; };
+            if (this.radioButton31.Checked == true) { resident_base_infoBean.education = this.radioButton31.Text; };
+            if (this.radioButton32.Checked == true) { resident_base_infoBean.education = this.radioButton32.Text; };
+
+            if (this.radioButton33.Checked == true) { resident_base_infoBean.profession = this.radioButton33.Text; };
+            if (this.radioButton34.Checked == true) { resident_base_infoBean.profession = this.radioButton34.Text; };
+            if (this.radioButton35.Checked == true) { resident_base_infoBean.profession = this.radioButton35.Text; };
+            if (this.radioButton36.Checked == true) { resident_base_infoBean.profession = this.radioButton36.Text; };
+            if (this.radioButton37.Checked == true) { resident_base_infoBean.profession = this.radioButton37.Text; };
+            if (this.radioButton38.Checked == true) { resident_base_infoBean.profession = this.radioButton38.Text; };
+            if (this.radioButton39.Checked == true) { resident_base_infoBean.profession = this.radioButton39.Text; };
+            if (this.radioButton40.Checked == true) { resident_base_infoBean.profession = this.radioButton40.Text; };
+            if (this.radioButton41.Checked == true) { resident_base_infoBean.profession = this.radioButton41.Text; };
+
+            if (this.radioButton42.Checked == true) { resident_base_infoBean.marital_status = this.radioButton42.Text; };
+            if (this.radioButton43.Checked == true) { resident_base_infoBean.marital_status = this.radioButton43.Text; };
+            if (this.radioButton44.Checked == true) { resident_base_infoBean.marital_status = this.radioButton44.Text; };
+            if (this.radioButton45.Checked == true) { resident_base_infoBean.marital_status = this.radioButton45.Text; };
+            if (this.radioButton46.Checked == true) { resident_base_infoBean.marital_status = this.radioButton46.Text; };
+
+            if (this.radioButton47.Checked == true) { resident_base_infoBean.pay_type = this.radioButton47.Text; };
+            if (this.radioButton48.Checked == true) { resident_base_infoBean.pay_type = this.radioButton48.Text; };
+            if (this.radioButton49.Checked == true) { resident_base_infoBean.pay_type = this.radioButton49.Text; };
+            if (this.radioButton50.Checked == true) { resident_base_infoBean.pay_type = this.radioButton50.Text; };
+            if (this.radioButton51.Checked == true) { resident_base_infoBean.pay_type = this.radioButton51.Text; };
+            if (this.radioButton52.Checked == true) { resident_base_infoBean.pay_type = this.radioButton52.Text; };
+            if (this.radioButton53.Checked == true) { resident_base_infoBean.pay_type = this.radioButton53.Text; };
+            if (this.radioButton54.Checked == true) { resident_base_infoBean.pay_type = this.radioButton54.Text; };
+
+            if (this.radioButton55.Checked == true) { resident_base_infoBean.drug_allergy = this.radioButton55.Text; };
+            if (this.radioButton56.Checked == true) { resident_base_infoBean.drug_allergy = this.radioButton56.Text; };
+            if (this.radioButton57.Checked == true) { resident_base_infoBean.drug_allergy = this.radioButton57.Text; };
+            if (this.radioButton58.Checked == true) { resident_base_infoBean.drug_allergy = this.radioButton58.Text; };
+            if (this.radioButton59.Checked == true) { resident_base_infoBean.drug_allergy = this.radioButton59.Text; };
+
+            if (this.radioButton60.Checked == true) { resident_base_infoBean.exposure = this.radioButton60.Text; };
+            if (this.radioButton61.Checked == true) { resident_base_infoBean.exposure = this.radioButton61.Text; };
+            if (this.radioButton62.Checked == true) { resident_base_infoBean.exposure = this.radioButton62.Text; };
+            if (this.radioButton63.Checked == true) { resident_base_infoBean.exposure = this.radioButton63.Text; };
+
+            foreach (Control ctr in this.panel15.Controls)
+            {
+                //判断该控件是不是CheckBox
+                if (ctr is CheckBox)
+                {
+                    //将ctr转换成CheckBox并赋值给ck
+                    CheckBox ck = ctr as CheckBox;
+                    if (ck.Checked)
+                    {
+                        resident_base_infoBean.disease_other += "," + ck.Text;
+                    }
+                }
+            }
+            if (resident_base_infoBean.disease_other != null && resident_base_infoBean.disease_other != "")
+            {
+                resident_base_infoBean.disease_other = resident_base_infoBean.disease_other.Substring(1);
+            }
+
+            //if (this.radioButton22.Checked == true) { resident_base_infoBean.disease_other = this.radioButton22.Text; };
+            //if (this.radioButton23.Checked == true) { resident_base_infoBean.disease_other = this.radioButton23.Text; };
+            //if (this.radioButton24.Checked == true) { resident_base_infoBean.disease_other = this.radioButton24.Text; };
+            //if (this.radioButton26.Checked == true) { resident_base_infoBean.disease_other = this.radioButton26.Text; };
+            //if (this.radioButton27.Checked == true) { resident_base_infoBean.disease_other = this.radioButton27.Text; };
+            //if (this.radioButton28.Checked == true) { resident_base_infoBean.disease_other = this.radioButton28.Text; };
+            //if (this.radioButton29.Checked == true) { resident_base_infoBean.disease_other = this.radioButton29.Text; };
+            //if (this.radioButton30.Checked == true) { resident_base_infoBean.disease_other = this.radioButton30.Text; };
+            //if (this.radioButton31.Checked == true) { resident_base_infoBean.disease_other = this.radioButton31.Text; };
+            //if (this.radioButton32.Checked == true) { resident_base_infoBean.disease_other = this.radioButton32.Text; };
+            //if (this.radioButton30.Checked == true) { resident_base_infoBean.disease_other = this.radioButton30.Text; };
+            //if (this.radioButton31.Checked == true) { resident_base_infoBean.disease_other = this.radioButton31.Text; };
+            //if (this.radioButton32.Checked == true) { resident_base_infoBean.disease_other = this.radioButton32.Text; };
+
+
+
+
+            //fuv_hypertensionBean.aichive_no = this.textBox2.Text.Replace(" ", "");
+            //fuv_hypertensionBean.visit_date = this.dateTimePicker1.Value.ToString();
+            //if (this.radioButton1.Checked == true) { fuv_hypertensionBean.visit_type = this.radioButton1.Text; };
+            //if (this.radioButton2.Checked == true) { fuv_hypertensionBean.visit_type = this.radioButton2.Text; };
+            //if (this.radioButton3.Checked == true) { fuv_hypertensionBean.visit_type = this.radioButton3.Text; };
+            //foreach (Control ctr in this.panel2.Controls)
+            //{
+            //    //判断该控件是不是CheckBox
+            //    if (ctr is CheckBox)
+            //    {
+            //        //将ctr转换成CheckBox并赋值给ck
+            //        CheckBox ck = ctr as CheckBox;
+            //        if (ck.Checked)
+            //        {
+            //            fuv_hypertensionBean.symptom += "," + ck.Text;
+            //        }
+            //    }
+            //}
+            //if (fuv_hypertensionBean.symptom != null && fuv_hypertensionBean.symptom != "")
+            //{
+            //    fuv_hypertensionBean.symptom = fuv_hypertensionBean.symptom.Substring(1);
+            //}
+            //fuv_hypertensionBean.other_symptom = this.richTextBox1.Text;
+
+            //fuv_hypertensionBean.sbp = this.numericUpDown9.Value.ToString();
+            //fuv_hypertensionBean.dbp = this.numericUpDown10.Value.ToString();
+            //fuv_hypertensionBean.weight = this.numericUpDown11.Value.ToString();
+            //fuv_hypertensionBean.target_weight = this.numericUpDown12.Value.ToString();
+            //fuv_hypertensionBean.bmi = this.numericUpDown14.Value.ToString();
+            //fuv_hypertensionBean.target_bmi = this.numericUpDown15.Value.ToString();
+            //fuv_hypertensionBean.heart_rate = this.numericUpDown16.Value.ToString();
+            //fuv_hypertensionBean.other_sign = this.richTextBox3.Text;
+
+            //fuv_hypertensionBean.smoken = this.numericUpDown1.Value.ToString();
+            //fuv_hypertensionBean.target_somken = this.numericUpDown2.Value.ToString();
+            //fuv_hypertensionBean.wine = this.numericUpDown3.Value.ToString();
+            //fuv_hypertensionBean.target_wine = this.numericUpDown4.Value.ToString();
+            //fuv_hypertensionBean.sport_week = this.numericUpDown5.Value.ToString();
+            //fuv_hypertensionBean.sport_once = this.numericUpDown6.Value.ToString();
+            //fuv_hypertensionBean.target_sport_week = this.numericUpDown7.Value.ToString();
+            //fuv_hypertensionBean.target_sport_once = this.numericUpDown8.Value.ToString();
+            //if (this.radioButton4.Checked == true) { fuv_hypertensionBean.salt_intake = this.radioButton4.Text; };
+            //if (this.radioButton5.Checked == true) { fuv_hypertensionBean.salt_intake = this.radioButton5.Text; };
+            //if (this.radioButton6.Checked == true) { fuv_hypertensionBean.salt_intake = this.radioButton6.Text; };
+            //if (this.radioButton7.Checked == true) { fuv_hypertensionBean.target_salt_intake = this.radioButton7.Text; };
+            //if (this.radioButton8.Checked == true) { fuv_hypertensionBean.target_salt_intake = this.radioButton8.Text; };
+            //if (this.radioButton9.Checked == true) { fuv_hypertensionBean.target_salt_intake = this.radioButton9.Text; };
+            //if (this.radioButton10.Checked == true) { fuv_hypertensionBean.mind_adjust = this.radioButton10.Text; };
+            //if (this.radioButton11.Checked == true) { fuv_hypertensionBean.mind_adjust = this.radioButton11.Text; };
+            //if (this.radioButton12.Checked == true) { fuv_hypertensionBean.mind_adjust = this.radioButton12.Text; };
+            //if (this.radioButton13.Checked == true) { fuv_hypertensionBean.doctor_obey = this.radioButton13.Text; };
+            //if (this.radioButton14.Checked == true) { fuv_hypertensionBean.doctor_obey = this.radioButton14.Text; };
+            //if (this.radioButton15.Checked == true) { fuv_hypertensionBean.doctor_obey = this.radioButton15.Text; };
+
+            //fuv_hypertensionBean.assist_examine = this.textBox3.Text.Replace(" ", "");
+            //if (this.radioButton22.Checked == true) { fuv_hypertensionBean.drug_obey = this.radioButton22.Text; };
+            //if (this.radioButton23.Checked == true) { fuv_hypertensionBean.drug_obey = this.radioButton23.Text; };
+            //if (this.radioButton24.Checked == true) { fuv_hypertensionBean.drug_obey = this.radioButton24.Text; };
+            //if (this.radioButton16.Checked == true) { fuv_hypertensionBean.untoward_effect = this.radioButton16.Text; };
+            //if (this.radioButton17.Checked == true) { fuv_hypertensionBean.untoward_effect = this.radioButton17.Text; };
+            //fuv_hypertensionBean.untoward_effect_drug = this.textBox8.Text.Replace(" ", "");
+            //if (this.radioButton18.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton18.Text; };
+            //if (this.radioButton19.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton19.Text; };
+            //if (this.radioButton20.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton20.Text; };
+            //if (this.radioButton21.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton21.Text; };
+            //if (fuv_hypertensionBean.visit_class == "") { MessageBox.Show("随访分类不能为空！"); return; };
+            //fuv_hypertensionBean.advice = this.richTextBox2.Text;
+
+            //fuv_hypertensionBean.transfer_reason = this.textBox5.Text.Replace(" ", "");
+            //fuv_hypertensionBean.transfer_organ = this.textBox6.Text.Replace(" ", "");
+            //fuv_hypertensionBean.next_visit_date = this.dateTimePicker2.Value.ToString();
+            //fuv_hypertensionBean.visit_doctor = this.textBox7.Text.Replace(" ", "");
+
+
+            ////以下页面未用 数据库字段格式要求
+            ////Cardcode,Codebar,SocialSecuritycode,patientAge,dataSate,hypertension_code,referral_code,create_name,create_time,update_name,update_time
+            //fuv_hypertensionBean.create_time = DateTime.Now.ToString();
+            //fuv_hypertensionBean.update_time = DateTime.Now.ToString();
+
+
+            //bool isfalse = hypertensionPatient.aUfuv_hypertension(fuv_hypertensionBean, id, goodsList);
+            //if (isfalse)
+            //{
+            //    this.DialogResult = DialogResult.OK;
+            //}
+        }
+    }
+}

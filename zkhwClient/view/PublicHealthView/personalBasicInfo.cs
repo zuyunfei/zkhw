@@ -9,48 +9,42 @@ using System.Windows.Forms;
 
 namespace zkhwClient.view.PublicHealthView
 {
-    public partial class hypertensionPatientServices : Form
+    public partial class personalBasicInfo : Form
     {
 
-
-        service.hypertensionPatientService hypertensionPatient = new service.hypertensionPatientService();
-
-
-        public hypertensionPatientServices()
+        service.personalBasicInfoService pBasicInfo = new service.personalBasicInfoService();
+        public personalBasicInfo()
         {
             InitializeComponent();
         }
 
-
-        private void hypertensionPatientServices_Load(object sender, EventArgs e)
+        private void personalBasicInfo_Load(object sender, EventArgs e)
         {
 
-            this.label4.Text = "高血压随访记录历史表";
+            this.label4.Text = "个人基本信息建档";
             this.label4.ForeColor = Color.SkyBlue;
             label4.Font = new Font("微软雅黑", 20F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(134)));
             label4.Left = (this.panel1.Width - this.label4.Width) / 2;
             label4.BringToFront();
 
-            queryhypertensionPatientServices();
+            querypBasicInfo();
         }
-
-
         //高血压随访记录历史表  关联传参调查询的方法
-        public string patientName = "";
-        public string patientAge = "";
+        public string name = "";
+        public string id_number = "";
         public string create_name = "";
-        public string dataSate = "";
-        private void queryhypertensionPatientServices()
+        public string synchro_result = "";
+        private void querypBasicInfo()
         {
             this.dataGridView1.DataSource = null;
-            DataTable dt = hypertensionPatient.queryHypertensionPatient(patientName, patientAge, create_name, dataSate);
+            DataTable dt = pBasicInfo.queryPersonalBasicInfo(name, id_number, create_name, synchro_result);
             this.dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "姓名";
-            this.dataGridView1.Columns[2].HeaderCell.Value = "年龄";
-            this.dataGridView1.Columns[3].HeaderCell.Value = "建档医生";
-            this.dataGridView1.Columns[4].HeaderCell.Value = "首检日期";
-            this.dataGridView1.Columns[5].HeaderCell.Value = "下次随访日期";
+            this.dataGridView1.Columns[2].HeaderCell.Value = "身份证号";
+            this.dataGridView1.Columns[3].HeaderCell.Value = "创建人";
+            this.dataGridView1.Columns[4].HeaderCell.Value = "创建时间";
+            this.dataGridView1.Columns[5].HeaderCell.Value = "责任医生";
             this.dataGridView1.Columns[6].HeaderCell.Value = "数据状态";
 
             this.dataGridView1.ReadOnly = true;
@@ -72,25 +66,13 @@ namespace zkhwClient.view.PublicHealthView
         //添加 修改 高血压随访记录历史表 调此方法
         private void button1_Click(object sender, EventArgs e)
         {
-            //方案一
-            //aUHypertensionPatientServices hm = new aUHypertensionPatientServices();
-            //hm.TopLevel = false;
-            //hm.Dock = DockStyle.Fill;
-            //hm.FormBorderStyle = FormBorderStyle.None;
-            //this.panel2.Visible = false;//高血压随访历史记录表主页面  
-            //this.panel3.Visible = true;  //添加页面
-            //this.panel3.Size = this.panel2.Size;
-            //hm.Size = this.panel3.Size;
-            //this.panel3.Controls.Add(hm);
-            //hm.Show();
-            //方案二
-            aUHypertensionPatientServices hm = new aUHypertensionPatientServices();
-            hm.label47.Text = "添加高血压随访记录历史表";
-            hm.Text = "添加高血压随访记录历史表";
+            aUPersonalBasicInfo hm = new aUPersonalBasicInfo();
+            hm.label47.Text = "添加个人基本信息表";
+            hm.Text = "添加个人基本信息表";
             if (hm.ShowDialog() == DialogResult.OK)
             {
                 //刷新页面
-                queryhypertensionPatientServices();
+                querypBasicInfo();
                 MessageBox.Show("添加成功！");
 
             }
@@ -102,9 +84,9 @@ namespace zkhwClient.view.PublicHealthView
             aUHypertensionPatientServices hm = new aUHypertensionPatientServices();
             string id = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             hm.id = id;
-            hm.label47.Text = "修改高血压随访记录历史表";
-            hm.Text = "修改高血压随访记录历史表";
-            DataTable dt = hypertensionPatient.queryHypertensionPatient0(id);
+            hm.label47.Text = "修改个人基本信息表";
+            hm.Text = "修改个人基本信息表";
+            DataTable dt = pBasicInfo.queryPersonalBasicInfo0(id);
             if (dt != null && dt.Rows.Count > 0)
             {
                 hm.textBox1.Text = dt.Rows[0]["patientName"].ToString();
@@ -185,7 +167,7 @@ namespace zkhwClient.view.PublicHealthView
             if (hm.ShowDialog() == DialogResult.OK)
             {
                 //刷新页面
-                queryhypertensionPatientServices();
+                querypBasicInfo();
                 MessageBox.Show("修改成功！");
 
             }
@@ -200,15 +182,14 @@ namespace zkhwClient.view.PublicHealthView
             int tt = (int)rr;
             if (tt == 1)
             {//删除用户       
-                bool istrue = hypertensionPatient.deleteHypertensionPatient(id);
+                bool istrue = pBasicInfo.deletePersonalBasicInfo(id);
                 if (istrue)
                 {
                     //刷新页面
-                    queryhypertensionPatientServices();
+                    querypBasicInfo();
                     MessageBox.Show("删除成功！");
                 }
             }
         }
-
     }
 }

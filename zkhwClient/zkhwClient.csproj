@@ -123,7 +123,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bean\diabetes_follow_recordBean.cs" />
+    <Compile Include="bean\fuv_hypertensionBean.cs" />
     <Compile Include="bean\loginLogBean.cs" />
+    <Compile Include="bean\resident_base_infoBean.cs" />
     <Compile Include="bean\UserInfo.cs" />
     <Compile Include="control\PagerControl.cs">
       <SubType>UserControl</SubType>
@@ -131,8 +134,11 @@
     <Compile Include="control\PagerControl.designer.cs">
       <DependentUpon>PagerControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="dao\loginLogDao.cs" />
-    <Compile Include="dao\UserDao.cs" />
+    <Compile Include="dao\PublicHealthDao\diabetesPatientDao.cs" />
+    <Compile Include="dao\PublicHealthDao\hypertensionPatientDao.cs" />
+    <Compile Include="dao\PublicHealthDao\personalBasicInfoDao.cs" />
+    <Compile Include="dao\SystemSettingsDao\loginLogDao.cs" />
+    <Compile Include="dao\SystemSettingsDao\UserDao.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MyEncrypt.cs" />
+    <Compile Include="service\PublicHealthService\diabetesPatientService.cs" />
+    <Compile Include="service\PublicHealthService\hypertensionPatientService.cs" />
+    <Compile Include="service\PublicHealthService\personalBasicInfoService.cs" />
     <Compile Include="view\HomeDoctorSigningView\addMember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +185,24 @@
     <Compile Include="view\HomeDoctorSigningView\teamMembers.Designer.cs">
       <DependentUpon>teamMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\PublicHealthView\aUdiabetesPatientServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\aUdiabetesPatientServices.Designer.cs">
+      <DependentUpon>aUdiabetesPatientServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\aUHypertensionPatientServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\aUHypertensionPatientServices.Designer.cs">
+      <DependentUpon>aUHypertensionPatientServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\aUPersonalBasicInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\aUPersonalBasicInfo.Designer.cs">
+      <DependentUpon>aUPersonalBasicInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\PublicHealthView\childHealthServices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +227,12 @@
     <Compile Include="view\PublicHealthView\examinatReport.Designer.cs">
       <DependentUpon>examinatReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\PublicHealthView\healthCheckup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\healthCheckup.Designer.cs">
+      <DependentUpon>healthCheckup.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\PublicHealthView\healthEducationServices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +256,12 @@
     </Compile>
     <Compile Include="view\PublicHealthView\olderHelthService.Designer.cs">
       <DependentUpon>olderHelthService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PublicHealthView\personalBasicInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\personalBasicInfo.Designer.cs">
+      <DependentUpon>personalBasicInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="view\PublicHealthView\personRegist.cs">
       <SubType>Form</SubType>
@@ -253,6 +292,24 @@
     </Compile>
     <Compile Include="view\PublicHealthView\vaccinationServices.Designer.cs">
       <DependentUpon>vaccinationServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\follow_medicine_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\follow_medicine_record.Designer.cs">
+      <DependentUpon>follow_medicine_record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\more.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\more.Designer.cs">
+      <DependentUpon>more.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\more0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\more0.Designer.cs">
+      <DependentUpon>more0.cs</DependentUpon>
     </Compile>
     <Compile Include="view\setting\basicInfoSettings.cs">
       <SubType>Form</SubType>
@@ -553,7 +610,6 @@
     <Folder Include="bin\x86\Release\" />
     <Folder Include="service\DataAnalysisService\" />
     <Folder Include="service\HomeDoctorSigningService\" />
-    <Folder Include="service\PublicHealthService\" />
     <Folder Include="service\UseHelpService\" />
   </ItemGroup>
   <ItemGroup>

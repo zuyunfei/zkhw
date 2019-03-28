@@ -47,6 +47,8 @@
             this.岁ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.预防接种服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.健康教育服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.个人基本信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.健康体检表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.家医ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.现场签约ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.团队成员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,6 +93,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.个人基本信息建档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -148,6 +151,8 @@
             this.人员登记ToolStripMenuItem,
             this.体检进度ToolStripMenuItem,
             this.体检报告ToolStripMenuItem,
+            this.个人基本信息建档ToolStripMenuItem,
+            this.健康体检表ToolStripMenuItem,
             this.老年人健康服务ToolStripMenuItem,
             this.高血压患者服务ToolStripMenuItem,
             this.型糖尿病患者服务ToolStripMenuItem,
@@ -157,7 +162,8 @@
             this.孕产妇ToolStripMenuItem,
             this.岁ToolStripMenuItem,
             this.预防接种服务ToolStripMenuItem,
-            this.健康教育服务ToolStripMenuItem});
+            this.健康教育服务ToolStripMenuItem,
+            this.个人基本信息ToolStripMenuItem});
             this.公共卫生ToolStripMenuItem.Name = "公共卫生ToolStripMenuItem";
             this.公共卫生ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.公共卫生ToolStripMenuItem.Text = "公共卫生";
@@ -241,6 +247,18 @@
             this.健康教育服务ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.健康教育服务ToolStripMenuItem.Text = "健康教育服务";
             // 
+            // 个人基本信息ToolStripMenuItem
+            // 
+            this.个人基本信息ToolStripMenuItem.Name = "个人基本信息ToolStripMenuItem";
+            this.个人基本信息ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.个人基本信息ToolStripMenuItem.Text = "个人基本信息建档";
+            // 
+            // 健康体检表ToolStripMenuItem
+            // 
+            this.健康体检表ToolStripMenuItem.Name = "健康体检表ToolStripMenuItem";
+            this.健康体检表ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.健康体检表ToolStripMenuItem.Text = "健康体检表";
+            // 
             // 家医ToolStripMenuItem
             // 
             this.家医ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -255,19 +273,19 @@
             // 现场签约ToolStripMenuItem
             // 
             this.现场签约ToolStripMenuItem.Name = "现场签约ToolStripMenuItem";
-            this.现场签约ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.现场签约ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.现场签约ToolStripMenuItem.Text = "现场签约";
             // 
             // 团队成员ToolStripMenuItem
             // 
             this.团队成员ToolStripMenuItem.Name = "团队成员ToolStripMenuItem";
-            this.团队成员ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.团队成员ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.团队成员ToolStripMenuItem.Text = "团队成员";
             // 
             // 签约统计ToolStripMenuItem
             // 
             this.签约统计ToolStripMenuItem.Name = "签约统计ToolStripMenuItem";
-            this.签约统计ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.签约统计ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.签约统计ToolStripMenuItem.Text = "签约统计";
             // 
             // 数据分析ToolStripMenuItem
@@ -282,7 +300,7 @@
             // 使用情况统计ToolStripMenuItem
             // 
             this.使用情况统计ToolStripMenuItem.Name = "使用情况统计ToolStripMenuItem";
-            this.使用情况统计ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.使用情况统计ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.使用情况统计ToolStripMenuItem.Text = "使用情况统计";
             // 
             // 设置ToolStripMenuItem
@@ -299,19 +317,19 @@
             // 基本信息设置ToolStripMenuItem
             // 
             this.基本信息设置ToolStripMenuItem.Name = "基本信息设置ToolStripMenuItem";
-            this.基本信息设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.基本信息设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.基本信息设置ToolStripMenuItem.Text = "基本信息设置";
             // 
             // 设备管理ToolStripMenuItem
             // 
             this.设备管理ToolStripMenuItem.Name = "设备管理ToolStripMenuItem";
-            this.设备管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.设备管理ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.设备管理ToolStripMenuItem.Text = "设备管理";
             // 
             // 系统日志ToolStripMenuItem
             // 
             this.系统日志ToolStripMenuItem.Name = "系统日志ToolStripMenuItem";
-            this.系统日志ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.系统日志ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.系统日志ToolStripMenuItem.Text = "系统日志";
             // 
             // 使用帮助ToolStripMenuItem
@@ -408,9 +426,10 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(222, 28);
@@ -530,7 +549,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 28);
@@ -540,7 +559,7 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button2);
@@ -645,6 +664,12 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "label9";
             // 
+            // 个人基本信息建档ToolStripMenuItem
+            // 
+            this.个人基本信息建档ToolStripMenuItem.Name = "个人基本信息建档ToolStripMenuItem";
+            this.个人基本信息建档ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.个人基本信息建档ToolStripMenuItem.Text = "个人基本信息建档";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -744,6 +769,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem 个人基本信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 健康体检表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 个人基本信息建档ToolStripMenuItem;
     }
 }
 

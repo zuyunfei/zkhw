@@ -1,6 +1,6 @@
 ﻿namespace zkhwClient.view.PublicHealthView
 {
-    partial class hypertensionPatientServices
+    partial class personalBasicInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -159,17 +159,17 @@
             this.panel3.TabIndex = 9;
             this.panel3.Visible = false;
             // 
-            // hypertensionPatientServices
+            // personalBasicInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1091, 687);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Name = "hypertensionPatientServices";
+            this.Name = "personalBasicInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "高血压服务";
-            this.Load += new System.EventHandler(this.hypertensionPatientServices_Load);
+            this.Text = "个人基本信息建档";
+            this.Load += new System.EventHandler(this.personalBasicInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
