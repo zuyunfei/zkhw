@@ -33,6 +33,11 @@ namespace zkhwClient.service
         {
             return hPD.queryOperation_record(resident_base_info_id);
         }
+        public DataTable queryTraumatism_record(string resident_base_info_id)
+        {
+            return hPD.queryTraumatism_record(resident_base_info_id);
+        }
         
+
     }
 }

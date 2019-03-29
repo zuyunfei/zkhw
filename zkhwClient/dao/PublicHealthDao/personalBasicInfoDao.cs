@@ -66,7 +66,15 @@ namespace zkhwClient.dao
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
+        public DataTable queryTraumatism_record(string resident_base_info_id)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select id,resident_base_info_id,traumatism_name,traumatism_time from traumatism_record where resident_base_info_id = '" + resident_base_info_id + "'";
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
         
+
 
     }
 }

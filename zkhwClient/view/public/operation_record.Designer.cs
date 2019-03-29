@@ -115,7 +115,7 @@
             this.MinimizeBox = false;
             this.Name = "operation_record";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "用药记录";
+            this.Text = "既往史手术表";
             this.Load += new System.EventHandler(this.follow_medicine_record_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

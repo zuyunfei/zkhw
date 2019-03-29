@@ -129,7 +129,7 @@
             this.MinimizeBox = false;
             this.Name = "resident_diseases";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "用药记录";
+            this.Text = "既往史疾病表";
             this.Load += new System.EventHandler(this.follow_medicine_record_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

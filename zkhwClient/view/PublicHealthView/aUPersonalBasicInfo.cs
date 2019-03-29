@@ -60,6 +60,21 @@ namespace zkhwClient.view.PublicHealthView
             }
             goodsList0Bind();
             ///////////////////////////////////
+            //既往史外伤清单表 traumatism_record 
+            DataTable dt1 = personalBasicInfoService.queryTraumatism_record(id);
+            goodsList1 = dt1.Clone();
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                DataRow drtmp = goodsList.NewRow();
+                drtmp["id"] = dt1.Rows[i]["id"].ToString();
+                drtmp["resident_base_info_id"] = dt1.Rows[i]["resident_base_info_id"].ToString();
+                drtmp["traumatism_name"] = dt1.Rows[i]["traumatism_name"].ToString();
+                drtmp["traumatism_time"] = dt1.Rows[i]["traumatism_time"].ToString();
+                goodsList1.Rows.Add(drtmp);
+            }
+            goodsList1Bind();
+            ///////////////////////////////////
+
         }
 
         //既往史疾病清单表 resident_diseases////////////////////////////////////////////////////////////////////////////////////////
@@ -131,7 +146,6 @@ namespace zkhwClient.view.PublicHealthView
             }
             goodsList0Bind();
         }
-
         private void goodsList0Bind()
         {
 
@@ -165,6 +179,55 @@ namespace zkhwClient.view.PublicHealthView
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //既往史手术清单表  operation_record////////////////////////////////////////////////////////////////////////////////////////
+        private void button7_Click(object sender, EventArgs e)
+        {
+            traumatism_record hm = new traumatism_record();
+            if (hm.ShowDialog() == DialogResult.OK)
+            {
+                DataRow drtmp = goodsList1.NewRow();
+                drtmp["id"] = 0;
+                drtmp["resident_base_info_id"] = id;
+                drtmp["traumatism_name"] = hm.traumatism_name.ToString();
+                drtmp["traumatism_time"] = hm.traumatism_time.ToString();
+                goodsList1.Rows.Add(drtmp);
+            }
+            goodsList1Bind();
+        }
+        private void goodsList1Bind()
+        {
+
+            this.dataGridView3.DataSource = goodsList1;
+            this.dataGridView3.Columns[0].Visible = false;//id
+            this.dataGridView3.Columns[1].Visible = false;//resident_base_info_id
+            this.dataGridView3.Columns[2].HeaderCell.Value = "手术名称";
+            this.dataGridView3.Columns[3].HeaderCell.Value = "手术时间";
+
+
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.RowsDefaultCellStyle.ForeColor = Color.Black;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (this.dataGridView3.SelectedRows.Count > 0)
+            {
+                this.dataGridView3.SelectedRows[0].Selected = false;
+            }
+            if (goodsList1 != null && goodsList1.Rows.Count > 0)
+            {
+                this.dataGridView3.Rows[goodsList1.Rows.Count - 1].Selected = true;
+            }
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (goodsList1 == null) { return; }
+            if (goodsList1.Rows.Count > 0)
+            {
+                goodsList1.Rows.RemoveAt(this.dataGridView3.SelectedRows[0].Index);
+                goodsList1Bind();
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();

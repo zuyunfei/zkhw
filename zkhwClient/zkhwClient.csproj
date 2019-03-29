@@ -518,6 +518,9 @@
     <EmbeddedResource Include="view\public\resident_diseases.resx">
       <DependentUpon>resident_diseases.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\public\traumatism_record.resx">
+      <DependentUpon>traumatism_record.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\setting\basicInfoSettings.resx">
       <DependentUpon>basicInfoSettings.cs</DependentUpon>
     </EmbeddedResource>
