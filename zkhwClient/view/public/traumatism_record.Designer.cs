@@ -44,7 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "手术名称";
+            this.label1.Text = "外伤名称";
             // 
             // label2
             // 
@@ -54,7 +54,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "手术时间";
+            this.label2.Text = "外伤时间";
             // 
             // button1
             // 
