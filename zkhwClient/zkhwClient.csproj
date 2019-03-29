@@ -185,6 +185,18 @@
     <Compile Include="view\HomeDoctorSigningView\teamMembers.Designer.cs">
       <DependentUpon>teamMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\public\metachysis_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\metachysis_record.Designer.cs">
+      <DependentUpon>metachysis_record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\operation_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\operation_record.Designer.cs">
+      <DependentUpon>operation_record.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\PublicHealthView\aUdiabetesPatientServices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +382,12 @@
     </Compile>
     <Compile Include="view\DataAnalysisView\usageStatistics.Designer.cs">
       <DependentUpon>usageStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\traumatism_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\traumatism_record.Designer.cs">
+      <DependentUpon>traumatism_record.cs</DependentUpon>
     </Compile>
     <Compile Include="view\UseHelpView\biochemical.cs">
       <SubType>Form</SubType>

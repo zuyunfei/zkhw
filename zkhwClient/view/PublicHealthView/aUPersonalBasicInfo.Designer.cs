@@ -31,6 +31,19 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.panel25 = new System.Windows.Forms.Panel();
             this.radioButton13 = new System.Windows.Forms.RadioButton();
@@ -197,20 +210,9 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel25.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel23.SuspendLayout();
@@ -231,8 +233,6 @@
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -337,6 +337,127 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1331, 966);
             this.panel1.TabIndex = 6;
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button10.Location = new System.Drawing.Point(1214, 618);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(23, 23);
+            this.button10.TabIndex = 131;
+            this.button10.Text = "-";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button9.Location = new System.Drawing.Point(1214, 555);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(23, 23);
+            this.button9.TabIndex = 130;
+            this.button9.Text = "+";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // panel18
+            // 
+            this.panel18.Location = new System.Drawing.Point(974, 553);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(234, 90);
+            this.panel18.TabIndex = 129;
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button8.Location = new System.Drawing.Point(897, 618);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(21, 23);
+            this.button8.TabIndex = 128;
+            this.button8.Text = "-";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button7.Location = new System.Drawing.Point(897, 555);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(21, 23);
+            this.button7.TabIndex = 127;
+            this.button7.Text = "+";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // panel17
+            // 
+            this.panel17.Location = new System.Drawing.Point(697, 553);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(200, 90);
+            this.panel17.TabIndex = 126;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.Location = new System.Drawing.Point(614, 618);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(21, 23);
+            this.button6.TabIndex = 125;
+            this.button6.Text = "-";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(614, 555);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(21, 23);
+            this.button3.TabIndex = 124;
+            this.button3.Text = "+";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // panel16
+            // 
+            this.panel16.Location = new System.Drawing.Point(411, 553);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(200, 90);
+            this.panel16.TabIndex = 123;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(332, 618);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(24, 23);
+            this.button2.TabIndex = 122;
+            this.button2.Text = "-";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(332, 555);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 23);
+            this.button1.TabIndex = 121;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.dataGridView1);
+            this.panel15.Location = new System.Drawing.Point(133, 553);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(200, 90);
+            this.panel15.TabIndex = 120;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(198, 86);
+            this.dataGridView1.TabIndex = 0;
             // 
             // textBox35
             // 
@@ -2215,126 +2336,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.dataGridView1);
-            this.panel15.Location = new System.Drawing.Point(133, 553);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(200, 90);
-            this.panel15.TabIndex = 120;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(332, 555);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
-            this.button1.TabIndex = 121;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(332, 618);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 23);
-            this.button2.TabIndex = 122;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // panel16
-            // 
-            this.panel16.Location = new System.Drawing.Point(411, 553);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(200, 90);
-            this.panel16.TabIndex = 123;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(614, 555);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(21, 23);
-            this.button3.TabIndex = 124;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button6.Location = new System.Drawing.Point(614, 618);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(21, 23);
-            this.button6.TabIndex = 125;
-            this.button6.Text = "-";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // panel17
-            // 
-            this.panel17.Location = new System.Drawing.Point(697, 553);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(200, 90);
-            this.panel17.TabIndex = 126;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.Location = new System.Drawing.Point(897, 555);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(21, 23);
-            this.button7.TabIndex = 127;
-            this.button7.Text = "+";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button8.Location = new System.Drawing.Point(897, 618);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(21, 23);
-            this.button8.TabIndex = 128;
-            this.button8.Text = "-";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // panel18
-            // 
-            this.panel18.Location = new System.Drawing.Point(974, 553);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(234, 90);
-            this.panel18.TabIndex = 129;
-            // 
-            // button9
-            // 
-            this.button9.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button9.Location = new System.Drawing.Point(1214, 555);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(23, 23);
-            this.button9.TabIndex = 130;
-            this.button9.Text = "+";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button10.Location = new System.Drawing.Point(1214, 618);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(23, 23);
-            this.button10.TabIndex = 131;
-            this.button10.Text = "-";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(198, 86);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // aUPersonalBasicInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2350,6 +2351,8 @@
             this.Load += new System.EventHandler(this.aUHypertensionPatientServices_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel24.ResumeLayout(false);
@@ -2390,8 +2393,6 @@
             this.panel9.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

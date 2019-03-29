@@ -16,9 +16,9 @@ namespace zkhwClient.view.PublicHealthView
         public string id = "";
 
         DataTable goodsList = new DataTable();//既往史疾病清单表 resident_diseases
-        DataTable goodsList0 = new DataTable();//既往史手术清单表 resident_diseases
-        DataTable goodsList1 = new DataTable();//既往史外伤清单表 resident_diseases
-        DataTable goodsList2 = new DataTable();//既往史输血清单表 resident_diseases
+        DataTable goodsList0 = new DataTable();//既往史手术清单表 operation_record
+        DataTable goodsList1 = new DataTable();//既往史外伤清单表 traumatism_record
+        DataTable goodsList2 = new DataTable();//既往史输血清单表 metachysis_record
 
 
         public aUPersonalBasicInfo()
@@ -89,6 +89,15 @@ namespace zkhwClient.view.PublicHealthView
             if (goodsList != null && goodsList.Rows.Count > 0)
             {
                 this.dataGridView1.Rows[goodsList.Rows.Count - 1].Selected = true;
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (goodsList == null) { return; }
+            if (goodsList.Rows.Count > 0)
+            {
+                goodsList.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+                goodsListBind();
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
