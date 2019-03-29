@@ -22,7 +22,7 @@ namespace zkhwClient.dao
         public bool deleteHypertensionPatient(string id)
         {
             int rt = 0;
-            string sql = "delete from fuv_hypertension where id='" + id + "'";
+            string sql = "delete from fuv_hypertension where id='" + id + "';delete from follow_medicine_record  where follow_id = '" + id + "';";
             rt = DbHelperMySQL.ExecuteSql(sql);
             return rt == 0 ? false : true;
         }
