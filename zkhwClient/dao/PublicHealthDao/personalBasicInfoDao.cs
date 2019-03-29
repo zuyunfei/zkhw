@@ -52,13 +52,14 @@ namespace zkhwClient.dao
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
-        public DataTable queryFollow_medicine_record(string follow_id)
+        public DataTable queryResident_diseases(string resident_base_info_id)
         {
             DataSet ds = new DataSet();
-            string sql = "select id,follow_id,drug_name,num,dosage from follow_medicine_record where follow_id = '" + follow_id + "'";
+            string sql = "select id,resident_base_info_id,disease_name,disease_date from resident_diseases where resident_base_info_id = '" + resident_base_info_id + "'";
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
 
     }
 }
+

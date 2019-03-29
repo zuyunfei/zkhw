@@ -14,6 +14,13 @@ namespace zkhwClient.view.PublicHealthView
 
         service.personalBasicInfoService personalBasicInfoService = new service.personalBasicInfoService();
         public string id = "";
+
+        DataTable goodsList = new DataTable();//既往史疾病清单表 resident_diseases
+        DataTable goodsList0 = new DataTable();//既往史手术清单表 resident_diseases
+        DataTable goodsList1 = new DataTable();//既往史外伤清单表 resident_diseases
+        DataTable goodsList2 = new DataTable();//既往史输血清单表 resident_diseases
+
+
         public aUPersonalBasicInfo()
         {
             InitializeComponent();
@@ -24,8 +31,67 @@ namespace zkhwClient.view.PublicHealthView
             label47.Font = new Font("微软雅黑", 20F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(134)));
             label47.Left = (this.panel1.Width - this.label47.Width) / 2;
             label47.BringToFront();
+
+            DataTable dt = personalBasicInfoService.queryResident_diseases(id);
+            goodsList = dt.Clone();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow drtmp = goodsList.NewRow();
+                drtmp["id"] = dt.Rows[i]["id"].ToString();
+                drtmp["resident_base_info_id"] = dt.Rows[i]["resident_base_info_id"].ToString();
+                drtmp["disease_name"] = dt.Rows[i]["disease_name"].ToString();
+                drtmp["disease_date"] = dt.Rows[i]["disease_date"].ToString();
+                goodsList.Rows.Add(drtmp);
+            }
+
+            goodsListBind();//既往史疾病清单表 resident_diseases
         }
 
+        //既往史疾病清单表 resident_diseases////////////////////////////////////////////////////////////////////////////////////////
+        private void button1_Click(object sender, EventArgs e)
+        {
+            resident_diseases hm = new resident_diseases();
+            if (hm.ShowDialog() == DialogResult.OK)
+            {
+                DataRow[] drr = goodsList.Select("disease_name = '" + hm.disease_name.ToString() + "'");
+                if (drr.Length > 0)
+                {
+                    MessageBox.Show("疾病记录已存在！");
+                    return;
+                }
+                DataRow drtmp = goodsList.NewRow();
+                drtmp["id"] = 0;
+                drtmp["resident_base_info_id"] = id;
+                drtmp["disease_name"] = hm.disease_name.ToString();
+                drtmp["disease_date"] = hm.disease_date.ToString();
+                goodsList.Rows.Add(drtmp);
+            }
+            goodsListBind();
+        }
+        private void goodsListBind()
+        {
+
+            this.dataGridView1.DataSource = goodsList;
+            this.dataGridView1.Columns[0].Visible = false;//id
+            this.dataGridView1.Columns[1].Visible = false;//resident_base_info_id
+            this.dataGridView1.Columns[2].HeaderCell.Value = "疾病名称";
+            this.dataGridView1.Columns[3].HeaderCell.Value = "确认日期";
+
+
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.RowsDefaultCellStyle.ForeColor = Color.Black;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                this.dataGridView1.SelectedRows[0].Selected = false;
+            }
+            if (goodsList != null && goodsList.Rows.Count > 0)
+            {
+                this.dataGridView1.Rows[goodsList.Rows.Count - 1].Selected = true;
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();

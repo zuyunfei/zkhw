@@ -74,7 +74,10 @@ namespace zkhwClient.dao
                     }
                 }
             }
-            DbHelperMySQL.ExecuteSql(sql0);
+            if (sql0 != "")
+            {
+                DbHelperMySQL.ExecuteSql(sql0);
+            }
             ret = DbHelperMySQL.ExecuteSql(sql);
             return ret == 0 ? false : true;
         }
