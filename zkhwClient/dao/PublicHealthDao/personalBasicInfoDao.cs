@@ -22,7 +22,7 @@ namespace zkhwClient.dao
         public bool deletePersonalBasicInfo(string id)
         {
             int rt = 0;
-            string sql = "delete from resident_base_info where id='" + id + "'";
+            string sql = "delete from resident_base_info where id='" + id + "';delete from resident_diseases  where resident_base_info_id = '" + id + "';";
             rt = DbHelperMySQL.ExecuteSql(sql);
             return rt == 0 ? false : true;
         }
@@ -52,13 +52,37 @@ namespace zkhwClient.dao
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
-        public DataTable queryFollow_medicine_record(string follow_id)
+        public DataTable queryResident_diseases(string resident_base_info_id)
         {
             DataSet ds = new DataSet();
-            string sql = "select id,follow_id,drug_name,num,dosage from follow_medicine_record where follow_id = '" + follow_id + "'";
+            string sql = "select id,resident_base_info_id,disease_name,disease_date from resident_diseases where resident_base_info_id = '" + resident_base_info_id + "'";
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
+        public DataTable queryOperation_record(string resident_base_info_id)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select id,resident_base_info_id,operation_name,operation_time from operation_record where resident_base_info_id = '" + resident_base_info_id + "'";
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
+        public DataTable queryTraumatism_record(string resident_base_info_id)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select id,resident_base_info_id,traumatism_name,traumatism_time from traumatism_record where resident_base_info_id = '" + resident_base_info_id + "'";
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
+        public DataTable queryMetachysis_record(string resident_base_info_id)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select id,resident_base_info_id,metachysis_reasonn,metachysis_time from metachysis_record where resident_base_info_id = '" + resident_base_info_id + "'";
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
+        
+
 
     }
 }
+

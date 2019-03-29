@@ -185,6 +185,18 @@
     <Compile Include="view\HomeDoctorSigningView\teamMembers.Designer.cs">
       <DependentUpon>teamMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\public\metachysis_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\metachysis_record.Designer.cs">
+      <DependentUpon>metachysis_record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\operation_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\operation_record.Designer.cs">
+      <DependentUpon>operation_record.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\PublicHealthView\aUdiabetesPatientServices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +323,12 @@
     <Compile Include="view\public\more0.Designer.cs">
       <DependentUpon>more0.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\public\resident_diseases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\resident_diseases.Designer.cs">
+      <DependentUpon>resident_diseases.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\setting\basicInfoSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +382,12 @@
     </Compile>
     <Compile Include="view\DataAnalysisView\usageStatistics.Designer.cs">
       <DependentUpon>usageStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\public\traumatism_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\traumatism_record.Designer.cs">
+      <DependentUpon>traumatism_record.cs</DependentUpon>
     </Compile>
     <Compile Include="view\UseHelpView\biochemical.cs">
       <SubType>Form</SubType>
@@ -455,6 +479,15 @@
     <EmbeddedResource Include="view\HomeDoctorSigningView\teamMembers.resx">
       <DependentUpon>teamMembers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\aUdiabetesPatientServices.resx">
+      <DependentUpon>aUdiabetesPatientServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\aUHypertensionPatientServices.resx">
+      <DependentUpon>aUHypertensionPatientServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\aUPersonalBasicInfo.resx">
+      <DependentUpon>aUPersonalBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\childHealthServices.resx">
       <DependentUpon>childHealthServices.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,6 +511,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\personRegist.resx">
       <DependentUpon>personRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\public\metachysis_record.resx">
+      <DependentUpon>metachysis_record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\public\operation_record.resx">
+      <DependentUpon>operation_record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\public\resident_diseases.resx">
+      <DependentUpon>resident_diseases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\public\traumatism_record.resx">
+      <DependentUpon>traumatism_record.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\setting\basicInfoSettings.resx">
       <DependentUpon>basicInfoSettings.cs</DependentUpon>

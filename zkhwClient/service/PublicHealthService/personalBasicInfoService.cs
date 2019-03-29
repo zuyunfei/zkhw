@@ -25,9 +25,23 @@ namespace zkhwClient.service
         {
             return hPD.queryPersonalBasicInfo0(id);
         }
-        public DataTable queryFollow_medicine_record(string follow_id)
+        public DataTable queryResident_diseases(string resident_base_info_id)
         {
-            return hPD.queryFollow_medicine_record(follow_id);
+            return hPD.queryResident_diseases(resident_base_info_id);
         }
+        public DataTable queryOperation_record(string resident_base_info_id)
+        {
+            return hPD.queryOperation_record(resident_base_info_id);
+        }
+        public DataTable queryTraumatism_record(string resident_base_info_id)
+        {
+            return hPD.queryTraumatism_record(resident_base_info_id);
+        }
+        public DataTable queryMetachysis_record(string resident_base_info_id)
+        {
+            return hPD.queryMetachysis_record(resident_base_info_id);
+        }
+        
+
     }
 }

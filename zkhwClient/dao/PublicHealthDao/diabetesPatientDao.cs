@@ -22,7 +22,7 @@ namespace zkhwClient.dao
         public bool deleteDiabetesPatient(string id)
         {
             int rt = 0;
-            string sql = "delete from diabetes_follow_record where id='" + id + "'";
+            string sql = "delete from diabetes_follow_record where id='" + id + "';delete from follow_medicine_record  where follow_id = '" + id + "';";
             rt = DbHelperMySQL.ExecuteSql(sql);
             return rt == 0 ? false : true;
         }
@@ -74,7 +74,10 @@ namespace zkhwClient.dao
                     }
                 }
             }
-            DbHelperMySQL.ExecuteSql(sql0);
+            if (sql0 != "")
+            {
+                DbHelperMySQL.ExecuteSql(sql0);
+            }
             ret = DbHelperMySQL.ExecuteSql(sql);
             return ret == 0 ? false : true;
         }

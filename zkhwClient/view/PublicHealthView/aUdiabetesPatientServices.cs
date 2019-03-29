@@ -211,16 +211,17 @@ namespace zkhwClient.view.PublicHealthView
             this.dataGridView1.Columns[3].HeaderCell.Value = "每日几次";
             this.dataGridView1.Columns[4].HeaderCell.Value = "每次用量";
 
-
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.RowsDefaultCellStyle.ForeColor = Color.Black;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-
-
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
                 this.dataGridView1.SelectedRows[0].Selected = false;
+            }
+            if (goodsList != null && goodsList.Rows.Count > 0)
+            {
                 this.dataGridView1.Rows[goodsList.Rows.Count - 1].Selected = true;
             }
         }
