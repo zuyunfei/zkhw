@@ -22,7 +22,7 @@ namespace zkhwClient.dao
         public bool deletePersonalBasicInfo(string id)
         {
             int rt = 0;
-            string sql = "delete from resident_base_info where id='" + id + "'";
+            string sql = "delete from resident_base_info where id='" + id + "';delete from resident_diseases  where resident_base_info_id = '" + id + "';";
             rt = DbHelperMySQL.ExecuteSql(sql);
             return rt == 0 ? false : true;
         }
