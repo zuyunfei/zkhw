@@ -8,14 +8,13 @@ namespace zkhwClient.dao
 {
     class personalBasicInfoDao
     {
-        public DataTable queryPersonalBasicInfo(string name, string id_number, string create_name, string synchro_result)
+        public DataTable queryPersonalBasicInfo(string name, string id_number, string aichive_no)
         {
             DataSet ds = new DataSet();
             string sql = "select id,name,id_number,create_name,create_time,doctor_name,synchro_result from resident_base_info where 1=1";
-            if (synchro_result != "" && synchro_result != "全部") { sql += " and synchro_result= '" + synchro_result + "'"; }
-            if (name != "") { sql += " and patientName like '%" + name + "%'"; }
-            if (id_number != "") { sql += " and id_number= '" + id_number + "'"; }
-            if (create_name != "") { sql += " and create_name like '%" + create_name + "%'"; }
+            if (name != "") { sql += " and name like '%" + name + "%'"; }
+            if (id_number != "") { sql += " and id_number like '%" + id_number + "%'"; }
+            if (aichive_no != "") { sql += " and aichive_no like '%" + aichive_no + "%'"; }
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }

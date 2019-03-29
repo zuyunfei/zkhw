@@ -9,9 +9,9 @@ namespace zkhwClient.service
     class personalBasicInfoService
     {
         dao.personalBasicInfoDao hPD = new dao.personalBasicInfoDao();
-        public DataTable queryPersonalBasicInfo(string name, string id_number, string create_name, string synchro_result)
+        public DataTable queryPersonalBasicInfo(string name, string id_number, string aichive_no)
         {
-            return hPD.queryPersonalBasicInfo(name, id_number, create_name, synchro_result);
+            return hPD.queryPersonalBasicInfo(name, id_number, aichive_no);
         }
         public bool deletePersonalBasicInfo(string id)
         {

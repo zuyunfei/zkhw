@@ -13,8 +13,8 @@ namespace zkhwClient.dao
             DataSet ds = new DataSet();
             string sql = "select id,patientName,patientAge,create_name,create_time,next_visit_date,dataSate from fuv_hypertension where 1=1";
             if (patientName != "") { sql += " and patientName like '%" + patientName + "%'"; }
-            if (Cardcode != "") { sql += " and Cardcode= '" + Cardcode + "'"; }
-            if (aichive_no != "") { sql += " and aichive_no= '" + aichive_no + "'"; }
+            if (Cardcode != "") { sql += " and Cardcode like '%" + Cardcode + "%'"; }
+            if (aichive_no != "") { sql += " and aichive_no like '%" + aichive_no + "%'";}
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
