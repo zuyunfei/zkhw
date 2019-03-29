@@ -73,6 +73,13 @@ namespace zkhwClient.dao
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
+        public DataTable queryMetachysis_record(string resident_base_info_id)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select id,resident_base_info_id,metachysis_reasonn,metachysis_time from metachysis_record where resident_base_info_id = '" + resident_base_info_id + "'";
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
         
 
 
