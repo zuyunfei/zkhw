@@ -59,6 +59,14 @@ namespace zkhwClient.dao
             ds = DbHelperMySQL.Query(sql);
             return ds.Tables[0];
         }
+        public DataTable queryOperation_record(string resident_base_info_id)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select id,resident_base_info_id,operation_name,operation_time from operation_record where resident_base_info_id = '" + resident_base_info_id + "'";
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
+        
 
     }
 }

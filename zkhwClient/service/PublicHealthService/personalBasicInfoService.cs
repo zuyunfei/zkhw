@@ -29,5 +29,10 @@ namespace zkhwClient.service
         {
             return hPD.queryResident_diseases(resident_base_info_id);
         }
+        public DataTable queryOperation_record(string resident_base_info_id)
+        {
+            return hPD.queryOperation_record(resident_base_info_id);
+        }
+        
     }
 }

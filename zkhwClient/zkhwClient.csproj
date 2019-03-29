@@ -512,6 +512,9 @@
     <EmbeddedResource Include="view\PublicHealthView\personRegist.resx">
       <DependentUpon>personRegist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\public\operation_record.resx">
+      <DependentUpon>operation_record.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\public\resident_diseases.resx">
       <DependentUpon>resident_diseases.cs</DependentUpon>
     </EmbeddedResource>

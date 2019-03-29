@@ -32,6 +32,7 @@ namespace zkhwClient.view.PublicHealthView
             label47.Left = (this.panel1.Width - this.label47.Width) / 2;
             label47.BringToFront();
 
+            //既往史疾病清单表 
             DataTable dt = personalBasicInfoService.queryResident_diseases(id);
             goodsList = dt.Clone();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -43,8 +44,22 @@ namespace zkhwClient.view.PublicHealthView
                 drtmp["disease_date"] = dt.Rows[i]["disease_date"].ToString();
                 goodsList.Rows.Add(drtmp);
             }
-
-            goodsListBind();//既往史疾病清单表 resident_diseases
+            goodsListBind();
+            ///////////////////////////////////
+            //既往史手术清单表 
+            DataTable dt0 = personalBasicInfoService.queryOperation_record(id);
+            goodsList0 = dt0.Clone();
+            for (int i = 0; i < dt0.Rows.Count; i++)
+            {
+                DataRow drtmp = goodsList.NewRow();
+                drtmp["id"] = dt0.Rows[i]["id"].ToString();
+                drtmp["resident_base_info_id"] = dt0.Rows[i]["resident_base_info_id"].ToString();
+                drtmp["operation_name"] = dt0.Rows[i]["operation_name"].ToString();
+                drtmp["operation_time"] = dt0.Rows[i]["operation_time"].ToString();
+                goodsList0.Rows.Add(drtmp);
+            }
+            goodsList0Bind();
+            ///////////////////////////////////
         }
 
         //既往史疾病清单表 resident_diseases////////////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +113,55 @@ namespace zkhwClient.view.PublicHealthView
             {
                 goodsList.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
                 goodsListBind();
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //既往史手术清单表  operation_record////////////////////////////////////////////////////////////////////////////////////////
+        private void button3_Click(object sender, EventArgs e)
+        {
+            operation_record hm = new operation_record();
+            if (hm.ShowDialog() == DialogResult.OK)
+            {
+                DataRow drtmp = goodsList0.NewRow();
+                drtmp["id"] = 0;
+                drtmp["resident_base_info_id"] = id;
+                drtmp["operation_name"] = hm.operation_name.ToString();
+                drtmp["operation_time"] = hm.operation_time.ToString();
+                goodsList0.Rows.Add(drtmp);
+            }
+            goodsList0Bind();
+        }
+
+        private void goodsList0Bind()
+        {
+
+            this.dataGridView2.DataSource = goodsList0;
+            this.dataGridView2.Columns[0].Visible = false;//id
+            this.dataGridView2.Columns[1].Visible = false;//resident_base_info_id
+            this.dataGridView2.Columns[2].HeaderCell.Value = "手术名称";
+            this.dataGridView2.Columns[3].HeaderCell.Value = "手术时间";
+
+
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.RowsDefaultCellStyle.ForeColor = Color.Black;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (this.dataGridView2.SelectedRows.Count > 0)
+            {
+                this.dataGridView2.SelectedRows[0].Selected = false;
+            }
+            if (goodsList0 != null && goodsList0.Rows.Count > 0)
+            {
+                this.dataGridView2.Rows[goodsList0.Rows.Count - 1].Selected = true;
+            }
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (goodsList0 == null) { return; }
+            if (goodsList0.Rows.Count > 0)
+            {
+                goodsList0.Rows.RemoveAt(this.dataGridView2.SelectedRows[0].Index);
+                goodsList0Bind();
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
