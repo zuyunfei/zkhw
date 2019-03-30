@@ -15,24 +15,18 @@ namespace zkhwClient.view.PublicHealthView
         public examinatReport()
         {
             InitializeComponent();
-            string sql = @"SELECT count(XingBie)sun,XingBie
+            string sql = @"SELECT count(sex)sun,sex
 from zkhw_tj_bgdc
-GROUP BY XingBie
+GROUP BY sex
 ";
             DataSet dataSet = DbHelperMySQL.Query(sql);
             DataTable data = dataSet.Tables[0];
             if (data != null && data.Rows.Count > 0)
             {
-                if (data.Rows[0]["XingBie"].ToString() == "女")
-                {
-                    女.Text = data.Rows[0]["sun"].ToString();
-                    男.Text = data.Rows[1]["sun"].ToString();
-                }
-                else
-                {
-                    女.Text = data.Rows[1]["sun"].ToString();
-                    男.Text = data.Rows[0]["sun"].ToString();
-                }
+                DataRow[] rows = data.Select("sex='女'");
+                女.Text = rows[0]["sun"].ToString();
+                DataRow[] rowsn = data.Select("sex='男'");
+                男.Text = rowsn[0]["sun"].ToString();
                 总数.Text = data.Compute("sum(sun)", "true").ToString();
             }
         }
@@ -47,13 +41,13 @@ GROUP BY XingBie
 
             pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
             int count = 0;
-            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out  count));
+            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out count));
             pagerControl1.DrawControl(count);
         }
         void pagerControl1_OnPageChanged(object sender, EventArgs e)
         {
             int count = 0;
-            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out  count));
+            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out count));
             pagerControl1.DrawControl(count);
         }
 
@@ -66,7 +60,7 @@ GROUP BY XingBie
         /// <returns></returns>
         private DataTable GetData(int pageindex, int pagesize, out int count)
         {
-            pageindex = pageindex - 1;
+            pageindex = pageindex != 0 ? pageindex - 1 : pageindex;
             string timesta = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             string timeend = dateTimePicker2.Value.ToString("yyyy-MM-dd");
             string sheng = comboBox1.SelectedValue?.ToString();
@@ -78,20 +72,15 @@ GROUP BY XingBie
             var pairs = new Dictionary<string, string>();
             pairs.Add("timesta", timesta);
             pairs.Add("timeend", timeend);
-            pairs.Add("sheng", sheng);
-            pairs.Add("shi", shi);
-            pairs.Add("xian", xian);
-            pairs.Add("cun", cun);
-            pairs.Add("zu", zu);
             pairs.Add("juming", juming);
             string sql = $@"select SQL_CALC_FOUND_ROWS 
 id,
 DATE_FORMAT(DengJiShiJian,'%Y%m%d') DengJiShiJian,
-CONCAT(Sheng,Shi,Xian,Cun,Zu) QuYu,
-BianHao,
-XingMing,
-XingBie,
-ShenFenZhengHao,
+area_duns,
+bar_code,
+name,
+sex,
+id_number,
 ShiFouTongBu,
 BaoGaoShengChan
 from zkhw_tj_bgdc where 1=1 ";
@@ -101,29 +90,10 @@ from zkhw_tj_bgdc where 1=1 ";
                 {
                     sql += $" and date_format(DengJiShiJian,'%Y-%m-%d') between '{pairs["timesta"]}' and '{pairs["timeend"]}'";
                 }
-                if (!string.IsNullOrWhiteSpace(pairs["sheng"]))
-                {
-                    sql += $" and Sheng='{pairs["sheng"]}'";
-                }
-                if (!string.IsNullOrWhiteSpace(pairs["shi"]))
-                {
-                    sql += $" and Shi='{pairs["shi"]}'";
-                }
-                if (!string.IsNullOrWhiteSpace(pairs["xian"]))
-                {
-                    sql += $" and Xian='{pairs["xian"]}'";
-                }
-                if (!string.IsNullOrWhiteSpace(pairs["cun"]))
-                {
-                    sql += $" and Cun='{pairs["cun"]}'";
-                }
-                if (!string.IsNullOrWhiteSpace(pairs["zu"]))
-                {
-                    sql += $" and Zu='{pairs["zu"]}'";
-                }
+
                 if (!string.IsNullOrWhiteSpace(pairs["juming"]))
                 {
-                    sql += $" or XingMing='{pairs["juming"]}' or BianHao='{pairs["juming"]}' or ShenFenZhengHao='{pairs["juming"]}'";
+                    sql += $" or name='{pairs["juming"]}' or bar_code='{pairs["juming"]}' or id_number='{pairs["juming"]}'";
                 }
             }
             //sql += $" and id > ({pageindex}-1)*{pagesize} limit {pagesize}; select found_rows()";
@@ -195,7 +165,7 @@ select id From zkhw_tj_bgdc Order By id limit {pageindex},1
         private void button1_Click(object sender, EventArgs e)
         {
             int count = 0;
-            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out  count));
+            queryExaminatProgress(GetData(pagerControl1.PageIndex, pagerControl1.PageSize, out count));
             pagerControl1.DrawControl(count);
         }
 
@@ -203,120 +173,120 @@ select id From zkhw_tj_bgdc Order By id limit {pageindex},1
         {
             string stan = dateTimePicker3.Value.ToString("yyyy-MM-dd");
             string end = dateTimePicker4.Value.ToString("yyyy-MM-dd");
-            string sql = $@"SELECT XingBie,'64',COUNT(XingBie) 人数,
+            string sql = $@"SELECT sex,'64',COUNT(sex) 人数,
 COUNT(CASE
-    WHEN(bchao = '是') THEN '0'
+    WHEN(bchao = '2') THEN '0'
 END
 ) as B超异常,
 COUNT(CASE
-    WHEN(XinDian = '是') THEN
+    WHEN(XinDian = '2') THEN
         '0'
 END
 ) as 心电异常,
 COUNT(CASE
-    WHEN(NiaoChangGui = '是') THEN
+    WHEN(NiaoChangGui = '2') THEN
         '0'
 END
 ) as 尿常规异常,
 COUNT(CASE
-    WHEN(XueYa = '是') THEN
+    WHEN(XueYa = '2') THEN
         '0'
 END
 ) as 血压异常,
 COUNT(CASE
-    WHEN(ShengHua = '是') THEN
+    WHEN(ShengHua = '2') THEN
         '0'
 END
 ) as 生化异常
-from zkhw_tj_bgdc where nianling >= '0' and nianling<= '64' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
-GROUP BY XingBie;
+from zkhw_tj_bgdc where birthday >= '0' and birthday<= '64' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
+GROUP BY sex;
 
-SELECT XingBie,'70',COUNT(XingBie) 人数,
+SELECT sex,'70',COUNT(sex) 人数,
 COUNT(CASE
-    WHEN(bchao = '是') THEN
+    WHEN(bchao = '2') THEN
         '0'
 END
 ) as B超异常,
 COUNT(CASE
-    WHEN(XinDian = '是') THEN
+    WHEN(XinDian = '2') THEN
         '0'
 END
 ) as 心电异常,
 COUNT(CASE
-    WHEN(NiaoChangGui = '是') THEN
+    WHEN(NiaoChangGui = '2') THEN
         '0'
 END
 ) as 尿常规异常,
 COUNT(CASE
-    WHEN(XueYa = '是') THEN
+    WHEN(XueYa = '2') THEN
         '0'
 END
 ) as 血压异常,
 COUNT(CASE
-    WHEN(ShengHua = '是') THEN
+    WHEN(ShengHua = '2') THEN
         '0'
 END
 ) as 生化异常
-from zkhw_tj_bgdc where nianling >= '65' and nianling<= '70' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
-GROUP BY XingBie;
+from zkhw_tj_bgdc where birthday >= '65' and birthday<= '70' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
+GROUP BY sex;
 
-SELECT XingBie,'75',COUNT(XingBie) 人数,
+SELECT sex,'75',COUNT(sex) 人数,
 COUNT(CASE
-    WHEN(bchao = '是') THEN
+    WHEN(bchao = '2') THEN
         '0'
 END
 ) as B超异常,
 COUNT(CASE
-    WHEN(XinDian = '是') THEN
+    WHEN(XinDian = '2') THEN
         '0'
 END
 ) as 心电异常,
 COUNT(CASE
-    WHEN(NiaoChangGui = '是') THEN
+    WHEN(NiaoChangGui = '2') THEN
         '0'
 END
 ) as 尿常规异常,
 COUNT(CASE
-    WHEN(XueYa = '是') THEN
+    WHEN(XueYa = '2') THEN
         '0'
 END
 ) as 血压异常,
 COUNT(CASE
-    WHEN(ShengHua = '是') THEN
+    WHEN(ShengHua = '2') THEN
         '0'
 END
 ) as 生化异常
-from zkhw_tj_bgdc where nianling >= '70' and nianling<= '75' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
-GROUP BY XingBie;
+from zkhw_tj_bgdc where birthday >= '70' and birthday<= '75' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
+GROUP BY sex;
 
-SELECT XingBie,'76',COUNT(XingBie) 人数,
+SELECT sex,'76',COUNT(sex) 人数,
 COUNT(CASE
-    WHEN(bchao = '是') THEN
+    WHEN(bchao = '2') THEN
         '0'
 END
 ) as B超异常,
 COUNT(CASE
-    WHEN(XinDian = '是') THEN
+    WHEN(XinDian = '2') THEN
         '0'
 END
 ) as 心电异常,
 COUNT(CASE
-    WHEN(NiaoChangGui = '是') THEN
+    WHEN(NiaoChangGui = '2') THEN
         '0'
 END
 ) as 尿常规异常,
 COUNT(CASE
-    WHEN(XueYa = '是') THEN
+    WHEN(XueYa = '2') THEN
         '0'
 END
 ) as 血压异常,
 COUNT(CASE
-    WHEN(ShengHua = '是') THEN
+    WHEN(ShengHua = '2') THEN
         '0'
 END
 ) as 生化异常
-from zkhw_tj_bgdc where nianling >= '75' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
-GROUP BY XingBie";
+from zkhw_tj_bgdc where birthday >= '75' and date_format(DengJiShiJian,'%Y-%m-%d') between '{stan}' and '{end}'
+GROUP BY sex";
             DataSet dataSet = DbHelperMySQL.Query(sql);
             if (dataSet != null && dataSet.Tables.Count > 0)
             {
@@ -329,12 +299,12 @@ GROUP BY XingBie";
                         {
                             case "64":
                                 #region 064
-                                DataRow[] rows = data.Select("XingBie='女'");
+                                DataRow[] rows = data.Select("sex='女'");
                                 if (rows != null && rows.Length > 0)
                                 {
                                     女064.Text = rows[0]["人数"].ToString();
                                 }
-                                DataRow[] rowss = data.Select("XingBie='男'");
+                                DataRow[] rowss = data.Select("sex='男'");
                                 if (rowss != null && rowss.Length > 0)
                                 {
                                     男064.Text = rowss[0]["人数"].ToString();
@@ -348,12 +318,12 @@ GROUP BY XingBie";
                                 break;
                             case "70":
                                 #region 6570
-                                DataRow[] nv6570 = data.Select("XingBie='女'");
+                                DataRow[] nv6570 = data.Select("sex='女'");
                                 if (nv6570 != null && nv6570.Length > 0)
                                 {
                                     女6570.Text = nv6570[0]["人数"].ToString();
                                 }
-                                DataRow[] nan6570 = data.Select("XingBie='男'");
+                                DataRow[] nan6570 = data.Select("sex='男'");
                                 if (nan6570 != null && nan6570.Length > 0)
                                 {
                                     男6570.Text = nan6570[0]["人数"].ToString();
@@ -367,12 +337,12 @@ GROUP BY XingBie";
                                 break;
                             case "75":
                                 #region 7075   
-                                DataRow[] nv7075 = data.Select("XingBie='女'");
+                                DataRow[] nv7075 = data.Select("sex='女'");
                                 if (nv7075 != null && nv7075.Length > 0)
                                 {
                                     女7075.Text = nv7075[0]["人数"].ToString();
                                 }
-                                DataRow[] nan7075 = data.Select("XingBie='男'");
+                                DataRow[] nan7075 = data.Select("sex='男'");
                                 if (nan7075 != null && nan7075.Length > 0)
                                 {
                                     男7075.Text = nan7075[0]["人数"].ToString();
@@ -386,12 +356,12 @@ GROUP BY XingBie";
                                 break;
                             case "76":
                                 #region 75
-                                DataRow[] nv75 = data.Select("XingBie='女'");
+                                DataRow[] nv75 = data.Select("sex='女'");
                                 if (nv75 != null && nv75.Length > 0)
                                 {
                                     女75.Text = nv75[0]["人数"].ToString();
                                 }
-                                DataRow[] nan75 = data.Select("XingBie='男'");
+                                DataRow[] nan75 = data.Select("sex='男'");
                                 if (nan75 != null && nan75.Length > 0)
                                 {
                                     男75.Text = nan75[0]["人数"].ToString();
