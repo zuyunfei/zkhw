@@ -30,7 +30,7 @@ namespace zkhwClient
         {
             //注册窗体关闭事件。
             this.FormClosing += new FormClosingEventHandler(MainForm_Closing);
-
+            this.timer1.Start();//时间控件定时器
 
             this.label1.Text = "一体化查体车  中科弘卫";
             this.label1.Font = new Font("微软雅黑", 13F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(134)));
@@ -743,6 +743,11 @@ namespace zkhwClient
                 }
 
             }
+        }
+        //定时器 刷新页面时间控件
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.label5.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

@@ -126,6 +126,7 @@
     <Compile Include="bean\diabetes_follow_recordBean.cs" />
     <Compile Include="bean\fuv_hypertensionBean.cs" />
     <Compile Include="bean\loginLogBean.cs" />
+    <Compile Include="bean\physical_examination_recordBean.cs" />
     <Compile Include="bean\resident_base_infoBean.cs" />
     <Compile Include="bean\UserInfo.cs" />
     <Compile Include="control\PagerControl.cs">
@@ -155,6 +156,12 @@
     <Compile Include="service\PublicHealthService\diabetesPatientService.cs" />
     <Compile Include="service\PublicHealthService\hypertensionPatientService.cs" />
     <Compile Include="service\PublicHealthService\personalBasicInfoService.cs" />
+    <Compile Include="view\public\family_record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\public\family_record.Designer.cs">
+      <DependentUpon>family_record.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\HomeDoctorSigningView\addMember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -511,6 +518,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\personRegist.resx">
       <DependentUpon>personRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\public\family_record.resx">
+      <DependentUpon>family_record.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\public\metachysis_record.resx">
       <DependentUpon>metachysis_record.cs</DependentUpon>

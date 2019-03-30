@@ -11,7 +11,7 @@ namespace zkhwClient.bean
 
 
         //电子档案唯一编码
-        public string aichive_no { get; set; }
+        public string archive_no { get; set; }
         //公卫平台电子档案编码
         public string pb_archive { get; set; }//标记页面未用
         //姓名

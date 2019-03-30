@@ -19,6 +19,7 @@ namespace zkhwClient.view.PublicHealthView
         DataTable goodsList0 = new DataTable();//既往史手术清单表 operation_record
         DataTable goodsList1 = new DataTable();//既往史外伤清单表 traumatism_record
         DataTable goodsList2 = new DataTable();//既往史输血清单表 metachysis_record
+        DataTable goodsList3 = new DataTable();//家族史表 family_record
 
 
         public aUPersonalBasicInfo()
@@ -88,6 +89,21 @@ namespace zkhwClient.view.PublicHealthView
             }
             goodsList2Bind();
             ///////////////////////////////////
+            //家族史表 family_record 
+            DataTable dt3 = personalBasicInfoService.queryFamily_record(id);
+            goodsList3 = dt3.Clone();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                DataRow drtmp = goodsList3.NewRow();
+                drtmp["id"] = dt3.Rows[i]["id"].ToString();
+                drtmp["resident_base_info_id"] = dt3.Rows[i]["resident_base_info_id"].ToString();
+                drtmp["relation"] = dt3.Rows[i]["relation"].ToString();
+                drtmp["disease_name"] = dt3.Rows[i]["disease_name"].ToString();
+                goodsList3.Rows.Add(drtmp);
+            }
+            goodsList3Bind();
+            ///////////////////////////////////
+
 
 
         }
@@ -290,6 +306,61 @@ namespace zkhwClient.view.PublicHealthView
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //家族史表 family_record ////////////////////////////////////////////////////////////////////////////////////////
+        private void button11_Click(object sender, EventArgs e)
+        {
+            family_record hm = new family_record();
+            if (hm.ShowDialog() == DialogResult.OK)
+            {
+                DataRow[] drr = goodsList3.Select("relation = '" + hm.relation.ToString() + "'");
+                if (drr.Length > 0)
+                {
+                    MessageBox.Show("关系已存在！");
+                    return;
+                }
+                DataRow drtmp = goodsList3.NewRow();
+                drtmp["id"] = 0;
+                drtmp["resident_base_info_id"] = id;
+                drtmp["relation"] = hm.relation.ToString();
+                drtmp["disease_name"] = hm.disease_name.ToString();
+                goodsList3.Rows.Add(drtmp);
+            }
+            goodsList3Bind();
+        }
+        private void goodsList3Bind()
+        {
+
+            this.dataGridView6.DataSource = goodsList3;
+            this.dataGridView6.Columns[0].Visible = false;//id
+            this.dataGridView6.Columns[1].Visible = false;//resident_base_info_id
+            this.dataGridView6.Columns[2].HeaderCell.Value = "关系";
+            this.dataGridView6.Columns[3].HeaderCell.Value = "疾病名称";
+
+
+            this.dataGridView6.AllowUserToAddRows = false;
+            this.dataGridView6.RowsDefaultCellStyle.ForeColor = Color.Black;
+            this.dataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (this.dataGridView6.SelectedRows.Count > 0)
+            {
+                this.dataGridView6.SelectedRows[0].Selected = false;
+            }
+            if (goodsList3 != null && goodsList3.Rows.Count > 0)
+            {
+                this.dataGridView6.Rows[goodsList3.Rows.Count - 1].Selected = true;
+            }
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (goodsList3 == null) { return; }
+            if (goodsList3.Rows.Count > 0)
+            {
+                goodsList3.Rows.RemoveAt(this.dataGridView6.SelectedRows[0].Index);
+                goodsList3Bind();
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
         private void button5_Click(object sender, EventArgs e)
@@ -302,7 +373,7 @@ namespace zkhwClient.view.PublicHealthView
             bean.resident_base_infoBean resident_base_infoBean = new bean.resident_base_infoBean();
 
             resident_base_infoBean.name = this.textBox1.Text.Replace(" ", "");
-            resident_base_infoBean.aichive_no = this.textBox2.Text.Replace(" ", "");
+            resident_base_infoBean.archive_no = this.textBox2.Text.Replace(" ", "");
             resident_base_infoBean.pb_archive = this.textBox2.Text.Replace(" ", "");
             if (this.radioButton1.Checked == true) { resident_base_infoBean.sex = this.radioButton1.Text; };
             if (this.radioButton2.Checked == true) { resident_base_infoBean.sex = this.radioButton2.Text; };
@@ -377,7 +448,12 @@ namespace zkhwClient.view.PublicHealthView
             if (this.radioButton62.Checked == true) { resident_base_infoBean.exposure = this.radioButton62.Text; };
             if (this.radioButton63.Checked == true) { resident_base_infoBean.exposure = this.radioButton63.Text; };
 
-            foreach (Control ctr in this.panel15.Controls)
+
+
+            resident_base_infoBean.heredity_name = this.richTextBox4.Text;
+
+
+            foreach (Control ctr in this.panel20.Controls)
             {
                 //判断该控件是不是CheckBox
                 if (ctr is CheckBox)
@@ -386,117 +462,81 @@ namespace zkhwClient.view.PublicHealthView
                     CheckBox ck = ctr as CheckBox;
                     if (ck.Checked)
                     {
-                        resident_base_infoBean.disease_other += "," + ck.Text;
+                        resident_base_infoBean.deformity_name += "," + ck.Text;
                     }
                 }
             }
-            if (resident_base_infoBean.disease_other != null && resident_base_infoBean.disease_other != "")
+            if (resident_base_infoBean.deformity_name != null && resident_base_infoBean.deformity_name != "")
             {
-                resident_base_infoBean.disease_other = resident_base_infoBean.disease_other.Substring(1);
+                resident_base_infoBean.deformity_name = resident_base_infoBean.deformity_name.Substring(1);
             }
 
-            //if (this.radioButton22.Checked == true) { resident_base_infoBean.disease_other = this.radioButton22.Text; };
-            //if (this.radioButton23.Checked == true) { resident_base_infoBean.disease_other = this.radioButton23.Text; };
-            //if (this.radioButton24.Checked == true) { resident_base_infoBean.disease_other = this.radioButton24.Text; };
-            //if (this.radioButton26.Checked == true) { resident_base_infoBean.disease_other = this.radioButton26.Text; };
-            //if (this.radioButton27.Checked == true) { resident_base_infoBean.disease_other = this.radioButton27.Text; };
-            //if (this.radioButton28.Checked == true) { resident_base_infoBean.disease_other = this.radioButton28.Text; };
-            //if (this.radioButton29.Checked == true) { resident_base_infoBean.disease_other = this.radioButton29.Text; };
-            //if (this.radioButton30.Checked == true) { resident_base_infoBean.disease_other = this.radioButton30.Text; };
-            //if (this.radioButton31.Checked == true) { resident_base_infoBean.disease_other = this.radioButton31.Text; };
-            //if (this.radioButton32.Checked == true) { resident_base_infoBean.disease_other = this.radioButton32.Text; };
-            //if (this.radioButton30.Checked == true) { resident_base_infoBean.disease_other = this.radioButton30.Text; };
-            //if (this.radioButton31.Checked == true) { resident_base_infoBean.disease_other = this.radioButton31.Text; };
-            //if (this.radioButton32.Checked == true) { resident_base_infoBean.disease_other = this.radioButton32.Text; };
+            if (this.radioButton18.Checked == true) { resident_base_infoBean.kitchen = this.radioButton18.Text; };
+            if (this.radioButton19.Checked == true) { resident_base_infoBean.kitchen = this.radioButton19.Text; };
+            if (this.radioButton20.Checked == true) { resident_base_infoBean.kitchen = this.radioButton20.Text; };
+            if (this.radioButton21.Checked == true) { resident_base_infoBean.kitchen = this.radioButton21.Text; };
+
+            if (this.radioButton70.Checked == true) { resident_base_infoBean.fuel = this.radioButton70.Text; };
+            if (this.radioButton71.Checked == true) { resident_base_infoBean.fuel = this.radioButton71.Text; };
+            if (this.radioButton72.Checked == true) { resident_base_infoBean.fuel = this.radioButton72.Text; };
+            if (this.radioButton73.Checked == true) { resident_base_infoBean.fuel = this.radioButton73.Text; };
+            if (this.radioButton74.Checked == true) { resident_base_infoBean.fuel = this.radioButton74.Text; };
+            if (this.radioButton75.Checked == true) { resident_base_infoBean.fuel = this.radioButton75.Text; };
+
+            if (this.radioButton76.Checked == true) { resident_base_infoBean.drink = this.radioButton76.Text; };
+            if (this.radioButton77.Checked == true) { resident_base_infoBean.drink = this.radioButton77.Text; };
+            if (this.radioButton78.Checked == true) { resident_base_infoBean.drink = this.radioButton78.Text; };
+            if (this.radioButton79.Checked == true) { resident_base_infoBean.drink = this.radioButton79.Text; };
+            if (this.radioButton80.Checked == true) { resident_base_infoBean.drink = this.radioButton80.Text; };
+            if (this.radioButton81.Checked == true) { resident_base_infoBean.drink = this.radioButton81.Text; };
+
+            if (this.radioButton82.Checked == true) { resident_base_infoBean.toilet = this.radioButton82.Text; };
+            if (this.radioButton83.Checked == true) { resident_base_infoBean.toilet = this.radioButton83.Text; };
+            if (this.radioButton84.Checked == true) { resident_base_infoBean.toilet = this.radioButton84.Text; };
+            if (this.radioButton85.Checked == true) { resident_base_infoBean.toilet = this.radioButton85.Text; };
+            if (this.radioButton86.Checked == true) { resident_base_infoBean.toilet = this.radioButton86.Text; };
+
+            if (this.radioButton87.Checked == true) { resident_base_infoBean.poultry = this.radioButton87.Text; };
+            if (this.radioButton88.Checked == true) { resident_base_infoBean.poultry = this.radioButton88.Text; };
+            if (this.radioButton89.Checked == true) { resident_base_infoBean.poultry = this.radioButton89.Text; };
+            if (this.radioButton90.Checked == true) { resident_base_infoBean.poultry = this.radioButton90.Text; };
 
 
 
-
-            //fuv_hypertensionBean.aichive_no = this.textBox2.Text.Replace(" ", "");
-            //fuv_hypertensionBean.visit_date = this.dateTimePicker1.Value.ToString();
-            //if (this.radioButton1.Checked == true) { fuv_hypertensionBean.visit_type = this.radioButton1.Text; };
-            //if (this.radioButton2.Checked == true) { fuv_hypertensionBean.visit_type = this.radioButton2.Text; };
-            //if (this.radioButton3.Checked == true) { fuv_hypertensionBean.visit_type = this.radioButton3.Text; };
-            //foreach (Control ctr in this.panel2.Controls)
-            //{
-            //    //判断该控件是不是CheckBox
-            //    if (ctr is CheckBox)
-            //    {
-            //        //将ctr转换成CheckBox并赋值给ck
-            //        CheckBox ck = ctr as CheckBox;
-            //        if (ck.Checked)
-            //        {
-            //            fuv_hypertensionBean.symptom += "," + ck.Text;
-            //        }
-            //    }
-            //}
-            //if (fuv_hypertensionBean.symptom != null && fuv_hypertensionBean.symptom != "")
-            //{
-            //    fuv_hypertensionBean.symptom = fuv_hypertensionBean.symptom.Substring(1);
-            //}
-            //fuv_hypertensionBean.other_symptom = this.richTextBox1.Text;
-
-            //fuv_hypertensionBean.sbp = this.numericUpDown9.Value.ToString();
-            //fuv_hypertensionBean.dbp = this.numericUpDown10.Value.ToString();
-            //fuv_hypertensionBean.weight = this.numericUpDown11.Value.ToString();
-            //fuv_hypertensionBean.target_weight = this.numericUpDown12.Value.ToString();
-            //fuv_hypertensionBean.bmi = this.numericUpDown14.Value.ToString();
-            //fuv_hypertensionBean.target_bmi = this.numericUpDown15.Value.ToString();
-            //fuv_hypertensionBean.heart_rate = this.numericUpDown16.Value.ToString();
-            //fuv_hypertensionBean.other_sign = this.richTextBox3.Text;
-
-            //fuv_hypertensionBean.smoken = this.numericUpDown1.Value.ToString();
-            //fuv_hypertensionBean.target_somken = this.numericUpDown2.Value.ToString();
-            //fuv_hypertensionBean.wine = this.numericUpDown3.Value.ToString();
-            //fuv_hypertensionBean.target_wine = this.numericUpDown4.Value.ToString();
-            //fuv_hypertensionBean.sport_week = this.numericUpDown5.Value.ToString();
-            //fuv_hypertensionBean.sport_once = this.numericUpDown6.Value.ToString();
-            //fuv_hypertensionBean.target_sport_week = this.numericUpDown7.Value.ToString();
-            //fuv_hypertensionBean.target_sport_once = this.numericUpDown8.Value.ToString();
-            //if (this.radioButton4.Checked == true) { fuv_hypertensionBean.salt_intake = this.radioButton4.Text; };
-            //if (this.radioButton5.Checked == true) { fuv_hypertensionBean.salt_intake = this.radioButton5.Text; };
-            //if (this.radioButton6.Checked == true) { fuv_hypertensionBean.salt_intake = this.radioButton6.Text; };
-            //if (this.radioButton7.Checked == true) { fuv_hypertensionBean.target_salt_intake = this.radioButton7.Text; };
-            //if (this.radioButton8.Checked == true) { fuv_hypertensionBean.target_salt_intake = this.radioButton8.Text; };
-            //if (this.radioButton9.Checked == true) { fuv_hypertensionBean.target_salt_intake = this.radioButton9.Text; };
-            //if (this.radioButton10.Checked == true) { fuv_hypertensionBean.mind_adjust = this.radioButton10.Text; };
-            //if (this.radioButton11.Checked == true) { fuv_hypertensionBean.mind_adjust = this.radioButton11.Text; };
-            //if (this.radioButton12.Checked == true) { fuv_hypertensionBean.mind_adjust = this.radioButton12.Text; };
-            //if (this.radioButton13.Checked == true) { fuv_hypertensionBean.doctor_obey = this.radioButton13.Text; };
-            //if (this.radioButton14.Checked == true) { fuv_hypertensionBean.doctor_obey = this.radioButton14.Text; };
-            //if (this.radioButton15.Checked == true) { fuv_hypertensionBean.doctor_obey = this.radioButton15.Text; };
-
-            //fuv_hypertensionBean.assist_examine = this.textBox3.Text.Replace(" ", "");
-            //if (this.radioButton22.Checked == true) { fuv_hypertensionBean.drug_obey = this.radioButton22.Text; };
-            //if (this.radioButton23.Checked == true) { fuv_hypertensionBean.drug_obey = this.radioButton23.Text; };
-            //if (this.radioButton24.Checked == true) { fuv_hypertensionBean.drug_obey = this.radioButton24.Text; };
-            //if (this.radioButton16.Checked == true) { fuv_hypertensionBean.untoward_effect = this.radioButton16.Text; };
-            //if (this.radioButton17.Checked == true) { fuv_hypertensionBean.untoward_effect = this.radioButton17.Text; };
-            //fuv_hypertensionBean.untoward_effect_drug = this.textBox8.Text.Replace(" ", "");
-            //if (this.radioButton18.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton18.Text; };
-            //if (this.radioButton19.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton19.Text; };
-            //if (this.radioButton20.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton20.Text; };
-            //if (this.radioButton21.Checked == true) { fuv_hypertensionBean.visit_class = this.radioButton21.Text; };
-            //if (fuv_hypertensionBean.visit_class == "") { MessageBox.Show("随访分类不能为空！"); return; };
-            //fuv_hypertensionBean.advice = this.richTextBox2.Text;
-
-            //fuv_hypertensionBean.transfer_reason = this.textBox5.Text.Replace(" ", "");
-            //fuv_hypertensionBean.transfer_organ = this.textBox6.Text.Replace(" ", "");
-            //fuv_hypertensionBean.next_visit_date = this.dateTimePicker2.Value.ToString();
-            //fuv_hypertensionBean.visit_doctor = this.textBox7.Text.Replace(" ", "");
 
 
             ////以下页面未用 数据库字段格式要求
-            ////Cardcode,Codebar,SocialSecuritycode,patientAge,dataSate,hypertension_code,referral_code,create_name,create_time,update_name,update_time
-            //fuv_hypertensionBean.create_time = DateTime.Now.ToString();
-            //fuv_hypertensionBean.update_time = DateTime.Now.ToString();
+            resident_base_infoBean.synchro_time = DateTime.Now.ToString();
+            resident_base_infoBean.create_time = DateTime.Now.ToString();
+            resident_base_infoBean.update_time = DateTime.Now.ToString();
+
+            resident_base_infoBean.is_hypertension = "0";
+            resident_base_infoBean.is_diabetes = "0";
+            resident_base_infoBean.is_psychosis = "0";
+            resident_base_infoBean.is_tuberculosis = "0";
+            resident_base_infoBean.is_heredity = "0";
+            resident_base_infoBean.is_deformity = "0";
+            resident_base_infoBean.is_poor = "0";
+            resident_base_infoBean.is_signing = "0";
+            resident_base_infoBean.is_synchro = "0";
 
 
-            //bool isfalse = hypertensionPatient.aUfuv_hypertension(fuv_hypertensionBean, id, goodsList);
-            //if (isfalse)
-            //{
-            //    this.DialogResult = DialogResult.OK;
-            //}
+            bool isfalse = personalBasicInfoService.aUpersonalBasicInfo(resident_base_infoBean, id, goodsList, goodsList0, goodsList1, goodsList2, goodsList3);
+            if (isfalse)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox12.Text.Replace(" ", "").Length == 18 && id == "") {
+                DataTable dt = personalBasicInfoService.query(this.textBox12.Text.Replace(" ", ""));
+                if (dt.Rows.Count > 0) {
+                    this.textBox12.Text = "";
+                    MessageBox.Show("此身份证号已注册");
+                }
+            }
         }
     }
 }

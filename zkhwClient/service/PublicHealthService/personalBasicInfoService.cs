@@ -13,14 +13,18 @@ namespace zkhwClient.service
         {
             return hPD.queryPersonalBasicInfo(name, id_number, aichive_no);
         }
+        public DataTable query(string id_number)
+        {
+            return hPD.query(id_number);
+        }
         public bool deletePersonalBasicInfo(string id)
         {
             return hPD.deletePersonalBasicInfo(id);
         }
-        //public bool aUfuv_hypertension(bean.fuv_hypertensionBean hm, string id, DataTable goodsList)
-        //{
-        //    return hPD.aUfuv_hypertension(hm, id, goodsList);
-        //}
+        public bool aUpersonalBasicInfo(bean.resident_base_infoBean hm, string id, DataTable goodsList, DataTable goodsList0, DataTable goodsList1, DataTable goodsList2, DataTable goodsList3)
+        {
+            return hPD.aUpersonalBasicInfo(hm,id, goodsList, goodsList0, goodsList1, goodsList2, goodsList3);
+        }
         public DataTable queryPersonalBasicInfo0(string id)
         {
             return hPD.queryPersonalBasicInfo0(id);
@@ -40,6 +44,10 @@ namespace zkhwClient.service
         public DataTable queryMetachysis_record(string resident_base_info_id)
         {
             return hPD.queryMetachysis_record(resident_base_info_id);
+        }
+        public DataTable queryFamily_record(string resident_base_info_id)
+        {
+            return hPD.queryFamily_record(resident_base_info_id);
         }
         
 
