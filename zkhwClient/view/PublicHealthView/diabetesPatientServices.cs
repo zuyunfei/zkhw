@@ -13,16 +13,20 @@ namespace zkhwClient.view.PublicHealthView
     {
         service.diabetesPatientService diabetesPatient = new service.diabetesPatientService();
         //高血压随访记录历史表  关联传参调查询的方法
-        public string name = "";
-        public string id_number = "";
-        public string aichive_no = "";
+        //public string name = "";
+        //public string id_number = "";
+        //public string aichive_no = "";
+        public string pCa = "";
+        public string time1 = null;
+        public string time2 = null;
         public diabetesPatientServices()
         {
             InitializeComponent();
         }
         private void diabetesPatientServices_Load(object sender, EventArgs e)
         {
-
+            //让默认的日期时间减一天
+            this.dateTimePicker1.Value = this.dateTimePicker2.Value.AddDays(-1);
             this.label4.Text = "糖尿病患者服务";
             this.label4.ForeColor = Color.SkyBlue;
             label4.Font = new Font("微软雅黑", 20F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(134)));
@@ -33,21 +37,26 @@ namespace zkhwClient.view.PublicHealthView
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            name = this.textBox1.Text;
-            id_number = this.textBox2.Text;
-            aichive_no = this.textBox2.Text;
+            pCa = this.textBox1.Text;//patientName Cardcode aichive_no
+            if (pCa != "")
+            {
+                this.label2.Text = "";
+            }
+            else { this.label2.Text = "---姓名/身份证号/档案号---"; }
+            time1 = this.dateTimePicker1.Text.ToString();//开始时间
+            time2 = this.dateTimePicker2.Text.ToString();//结束时间
             querydiabetesPatientServices();
         }
         private void querydiabetesPatientServices()
         {
             this.dataGridView1.DataSource = null;
-            DataTable dt = diabetesPatient.querydiabetesPatient(name, id_number, aichive_no);
+            DataTable dt = diabetesPatient.querydiabetesPatient(pCa, time1, time2);
             this.dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "姓名";
             this.dataGridView1.Columns[2].HeaderCell.Value = "身份证号";
             this.dataGridView1.Columns[3].HeaderCell.Value = "建档医生";
-            this.dataGridView1.Columns[4].HeaderCell.Value = "首检日期";
+            this.dataGridView1.Columns[4].HeaderCell.Value = "随访日期";
             this.dataGridView1.Columns[5].HeaderCell.Value = "下次随访日期";
             this.dataGridView1.Columns[6].HeaderCell.Value = "数据状态";
 
@@ -206,6 +215,11 @@ namespace zkhwClient.view.PublicHealthView
                     MessageBox.Show("删除成功！");
                 }
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.label2.Visible = this.textBox1.Text.Length < 1;
         }
     }
 }

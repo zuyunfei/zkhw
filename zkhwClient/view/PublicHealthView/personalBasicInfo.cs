@@ -13,9 +13,12 @@ namespace zkhwClient.view.PublicHealthView
     {
 
         service.personalBasicInfoService pBasicInfo = new service.personalBasicInfoService();
-        public string name = "";
-        public string id_number = "";
-        public string aichive_no = "";
+        //public string name = "";
+        //public string id_number = "";
+        //public string aichive_no = "";
+        public string pCa = "";
+        public string time1 = null;
+        public string time2 = null;
         public personalBasicInfo()
         {
             InitializeComponent();
@@ -23,6 +26,8 @@ namespace zkhwClient.view.PublicHealthView
 
         private void personalBasicInfo_Load(object sender, EventArgs e)
         {
+            //让默认的日期时间减一天
+            this.dateTimePicker1.Value = this.dateTimePicker2.Value.AddDays(-1);
 
             this.label4.Text = "个人基本信息建档";
             this.label4.ForeColor = Color.SkyBlue;
@@ -34,16 +39,21 @@ namespace zkhwClient.view.PublicHealthView
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            name = this.textBox1.Text;
-            id_number = this.textBox2.Text;
-            aichive_no = this.textBox3.Text;
+            pCa = this.textBox1.Text;
+            if (pCa != "")
+            {
+                this.label2.Text = "";
+            }
+            else { this.label2.Text = "---姓名/身份证号/档案号---"; }
+            time1 = this.dateTimePicker1.Text.ToString();//开始时间
+            time2 = this.dateTimePicker2.Text.ToString();//结束时间
             querypBasicInfo();
         }
         //高血压随访记录历史表  关联传参调查询的方法
         private void querypBasicInfo()
         {
             this.dataGridView1.DataSource = null;
-            DataTable dt = pBasicInfo.queryPersonalBasicInfo(name, id_number, aichive_no);
+            DataTable dt = pBasicInfo.queryPersonalBasicInfo(pCa, time1, time2);
             this.dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "姓名";
@@ -247,6 +257,11 @@ namespace zkhwClient.view.PublicHealthView
                     MessageBox.Show("删除成功！");
                 }
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.label5.Visible = this.textBox1.Text.Length < 1;
         }
     }
 }

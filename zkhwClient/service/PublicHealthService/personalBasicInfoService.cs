@@ -9,9 +9,9 @@ namespace zkhwClient.service
     class personalBasicInfoService
     {
         dao.personalBasicInfoDao hPD = new dao.personalBasicInfoDao();
-        public DataTable queryPersonalBasicInfo(string name, string id_number, string aichive_no)
+        public DataTable queryPersonalBasicInfo(string pCa, string time1, string time2)
         {
-            return hPD.queryPersonalBasicInfo(name, id_number, aichive_no);
+            return hPD.queryPersonalBasicInfo(pCa, time1, time2);
         }
         public DataTable query(string id_number)
         {

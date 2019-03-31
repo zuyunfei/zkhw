@@ -9,9 +9,9 @@ namespace zkhwClient.service
     class hypertensionPatientService
     {
         dao.hypertensionPatientDao hPD = new dao.hypertensionPatientDao();
-        public DataTable queryHypertensionPatient(string patientName, string Cardcode, string aichive_no)
+        public DataTable queryHypertensionPatient(string pCa, string time1, string time2)
         {
-            return hPD.queryHypertensionPatient(patientName, Cardcode, aichive_no);
+            return hPD.queryHypertensionPatient(pCa, time1, time2);
         }
         public bool deleteHypertensionPatient(string id)
         {
