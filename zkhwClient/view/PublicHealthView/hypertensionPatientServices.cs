@@ -214,12 +214,6 @@ namespace zkhwClient.view.PublicHealthView
                 }
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             this.label2.Visible = this.textBox1.Text.Length < 1;

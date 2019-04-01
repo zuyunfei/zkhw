@@ -74,5 +74,11 @@ namespace zkhwClient.PublicHealth
         {
             queryExaminatProgress();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.label5.Visible = this.textBox1.Text.Length < 1;
+
+        }
     }
 }
