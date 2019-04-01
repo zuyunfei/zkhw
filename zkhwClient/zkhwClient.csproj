@@ -93,34 +93,27 @@
     <ApplicationIcon>zkhw.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\AForge.dll</HintPath>
+    <Reference Include="AForge">
+      <HintPath>bin\x86\Debug\新建文件夹\AForge.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\AForge.Controls.dll</HintPath>
+    <Reference Include="AForge.Controls">
+      <HintPath>bin\x86\Debug\新建文件夹\AForge.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\AForge.Imaging.dll</HintPath>
+    <Reference Include="AForge.Imaging">
+      <HintPath>bin\x86\Debug\新建文件夹\AForge.Imaging.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\AForge.Video.dll</HintPath>
+    <Reference Include="AForge.Video">
+      <HintPath>bin\x86\Debug\新建文件夹\AForge.Video.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\AForge.Video.DirectShow.dll</HintPath>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>bin\x86\Debug\新建文件夹\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\BarcodeLib.dll</HintPath>
+    <Reference Include="BarcodeLib">
+      <HintPath>bin\x86\Debug\新建文件夹\BarcodeLib.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.BarTender, Version=10.1.3.1, Culture=neutral, PublicKeyToken=109ff779a1b4cbc7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Interop.BarTender">
+      <HintPath>bin\x86\Debug\新建文件夹\Interop.BarTender.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>bin\x86\Debug\Interop.BarTender.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -202,6 +195,12 @@
     <Compile Include="service\PublicHealthService\hypertensionPatientService.cs" />
     <Compile Include="service\PublicHealthService\personalBasicInfoService.cs" />
     <Compile Include="utils\CVRSDK.cs" />
+    <Compile Include="view\PublicHealthView\aUolderHelthService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PublicHealthView\aUolderHelthService.Designer.cs">
+      <DependentUpon>aUolderHelthService.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\public\family_record.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -540,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\aUHypertensionPatientServices.resx">
       <DependentUpon>aUHypertensionPatientServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PublicHealthView\aUolderHelthService.resx">
+      <DependentUpon>aUolderHelthService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\aUPersonalBasicInfo.resx">
       <DependentUpon>aUPersonalBasicInfo.cs</DependentUpon>
