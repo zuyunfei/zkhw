@@ -254,7 +254,6 @@
             this.label2.Size = new System.Drawing.Size(277, 19);
             this.label2.TabIndex = 7;
             this.label2.Text = "---姓名/身份证号/档案号---";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button5
             // 
