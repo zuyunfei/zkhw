@@ -135,6 +135,7 @@
     <Compile Include="control\PagerControl.designer.cs">
       <DependentUpon>PagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="dao\PublicHealthDao\olderHelthServiceDao.cs" />
     <Compile Include="dao\PublicHealthDao\diabetesPatientDao.cs" />
     <Compile Include="dao\PublicHealthDao\hypertensionPatientDao.cs" />
     <Compile Include="dao\PublicHealthDao\personalBasicInfoDao.cs" />
@@ -153,6 +154,7 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MyEncrypt.cs" />
+    <Compile Include="service\PublicHealthService\olderHelthServices.cs" />
     <Compile Include="service\PublicHealthService\diabetesPatientService.cs" />
     <Compile Include="service\PublicHealthService\hypertensionPatientService.cs" />
     <Compile Include="service\PublicHealthService\personalBasicInfoService.cs" />

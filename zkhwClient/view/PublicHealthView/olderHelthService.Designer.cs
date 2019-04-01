@@ -490,6 +490,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "删除";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -503,6 +504,7 @@
             this.button5.TabIndex = 7;
             this.button5.Text = "关闭";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // olderHelthService
             // 
