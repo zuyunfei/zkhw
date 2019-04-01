@@ -379,7 +379,7 @@ namespace zkhwClient.view.PublicHealthView
             if (this.radioButton2.Checked == true) { resident_base_infoBean.sex = this.radioButton2.Text; };
             if (this.radioButton3.Checked == true) { resident_base_infoBean.sex = this.radioButton3.Text; };
             if (this.radioButton25.Checked == true) { resident_base_infoBean.sex = this.radioButton25.Text; };
-            resident_base_infoBean.birthday = this.dateTimePicker1.Value.ToString();
+            resident_base_infoBean.birthday = this.dateTimePicker1.Text;
             resident_base_infoBean.id_number = this.textBox12.Text.Replace(" ", "");
             resident_base_infoBean.company = this.textBox14.Text.Replace(" ", "");
             resident_base_infoBean.phone = this.textBox16.Text.Replace(" ", "");

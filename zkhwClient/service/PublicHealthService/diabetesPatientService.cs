@@ -9,9 +9,9 @@ namespace zkhwClient.service
     class diabetesPatientService
     {
         dao.diabetesPatientDao hPD = new dao.diabetesPatientDao();
-        public DataTable querydiabetesPatient(string name, string id_number, string aichive_no)
+        public DataTable querydiabetesPatient(string pCa, string time1, string time2)
         {
-            return hPD.querydiabetesPatient(name, id_number, aichive_no);
+            return hPD.querydiabetesPatient(pCa, time1, time2);
         }
         public bool deleteDiabetesPatient(string id)
         {

@@ -8,14 +8,12 @@ namespace zkhwClient.dao
 {
     class hypertensionPatientDao
     {
-        public DataTable queryHypertensionPatient(string patientName, string Cardcode, string aichive_no)
+        public DataTable queryHypertensionPatient(string pCa, string time1, string time2)
         {
             DataSet ds = new DataSet();
-            string sql = "select id,patientName,patientAge,create_name,create_time,next_visit_date,dataSate from fuv_hypertension where 1=1";
-            if (patientName != "") { sql += " and patientName like '%" + patientName + "%'"; }
-            if (Cardcode != "") { sql += " and Cardcode like '%" + Cardcode + "%'"; }
-            if (aichive_no != "") { sql += " and aichive_no like '%" + aichive_no + "%'";}
-            ds = DbHelperMySQL.Query(sql);
+            string sql = "select id,patientName,patientAge,create_name,visit_date,next_visit_date,dataSate from fuv_hypertension where visit_date >= '" + time1 + "' and visit_date <= '" + time2 + "'";
+            if (pCa != "") { sql += " and (patientName like '%" + pCa + "%'  or Cardcode like '%" + pCa + "%'  or aichive_no like '%" + pCa + "%')"; }
+            ds = DbHelperMySQL.Query(sql); 
             return ds.Tables[0];
         }
         
