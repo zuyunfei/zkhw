@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace zkhwClient.view.PublicHealthView
         public examinatReport()
         {
             InitializeComponent();
+            BinData();
+        }
+
+        /// <summary>
+        /// 初始化数据
+        /// </summary>
+        private void BinData()
+        {
+            #region 报告统计数据绑定
             string sql = @"SELECT count(sex)sun,sex
 from zkhw_tj_bgdc
 GROUP BY sex
@@ -29,6 +39,17 @@ GROUP BY sex
                 男.Text = rowsn[0]["sun"].ToString();
                 总数.Text = data.Compute("sum(sun)", "true").ToString();
             }
+            #endregion
+
+            #region 报告查询 区域数据绑定
+            string sql1 = "select code as ID,name as Name from code_area_config where parent_code='-1';";
+            DataSet datas = DbHelperMySQL.Query(sql1);
+            if (datas != null && datas.Tables.Count > 0)
+            {
+                List<ComboBoxData> ts = Result.ToDataList<ComboBoxData>(datas.Tables[0]);
+                Result.Bind(comboBox1, ts, "Name", "ID", "--请选择--");
+            }
+            #endregion
         }
 
         private void examinatProgress_Load(object sender, EventArgs e)
@@ -36,8 +57,8 @@ GROUP BY sex
             //让默认的日期时间减一天
             this.dateTimePicker1.Value = this.dateTimePicker2.Value.AddDays(-1);
             string str = Application.StartupPath;//项目路径
-            this.button1.BackgroundImage = Image.FromFile(@str + "/images/check.png");
-            this.统计查询.BackgroundImage = Image.FromFile(@str + "/images/check.png");
+            //this.button1.BackgroundImage = Image.FromFile(@str + "/images/check.png");
+            //this.统计查询.BackgroundImage = Image.FromFile(@str + "/images/check.png");
 
             pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
             int count = 0;
@@ -392,6 +413,46 @@ GROUP BY sex";
                    rectangle,
                    dataGridView1.RowHeadersDefaultCellStyle.ForeColor,
                    TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+        }
+
+        /// <summary>
+        /// 绑定下拉选项
+        /// </summary>
+        /// <param name="combo">获取值</param>
+        /// <param name="box">绑定值</param>
+        private void comboBoxBin(ComboBox combo, ComboBox box)
+        {
+            string id = combo.SelectedValue?.ToString();
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                string sql1 = $"select code as ID,name as Name from code_area_config where parent_code='{id}'";
+                DataSet datas = DbHelperMySQL.Query(sql1);
+                if (datas != null && datas.Tables.Count > 0)
+                {
+                    List<ComboBoxData> ts = Result.ToDataList<ComboBoxData>(datas.Tables[0]);
+                    Result.Bind(box, ts, "Name", "ID", "--请选择--");
+                }
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxBin(comboBox1, comboBox2);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxBin(comboBox2, comboBox3);
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxBin(comboBox3, comboBox4);
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxBin(comboBox4, comboBox5);
         }
     }
 }

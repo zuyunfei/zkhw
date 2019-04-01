@@ -12,7 +12,7 @@ namespace zkhwClient.dao
     /// 系统公共使用部分
     /// </summary>
     public static class Result
-    { 
+    {
         /// <summary>
         /// 获取字符串类型的主键
         /// </summary>
@@ -38,6 +38,8 @@ namespace zkhwClient.dao
         public static void Bind<T>(this ComboBox combox, IList<T> list, string displayMember, string valueMember, string displayText)
         {
             AddItem(list, displayMember, displayText);
+            combox.DisplayMember = displayMember;
+            combox.ValueMember = valueMember;
             combox.DataSource = list;
             combox.DisplayMember = displayMember;
             if (!string.IsNullOrEmpty(valueMember))
@@ -99,5 +101,11 @@ namespace zkhwClient.dao
             }
             return list;
         }
+    }
+
+    public class ComboBoxData
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
     }
 }
