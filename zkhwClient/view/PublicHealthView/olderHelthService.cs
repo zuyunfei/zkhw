@@ -11,7 +11,7 @@ namespace zkhwClient.PublicHealth
 {
     public partial class olderHelthService : Form
     {
-        service.olderHelthServices olderHelthS = new service.olderHelthServices();
+        service.olderHelthServices olderHelthS = new service.olderHelthServices(); 
 
         public string pCa = "";
         public string time1 = null;
@@ -36,7 +36,7 @@ namespace zkhwClient.PublicHealth
             this.dataGridView1.DataSource = dt;
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderCell.Value = "姓名";
-            this.dataGridView1.Columns[2].HeaderCell.Value = "年龄";
+            this.dataGridView1.Columns[2].HeaderCell.Value = "身份证号";
             this.dataGridView1.Columns[3].HeaderCell.Value = "总分";
             this.dataGridView1.Columns[4].HeaderCell.Value = "评判结果";
             this.dataGridView1.Columns[5].HeaderCell.Value = "测试日期";
