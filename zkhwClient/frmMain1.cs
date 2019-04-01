@@ -49,8 +49,8 @@ namespace zkhwClient
                         Lab[i] = new Label();
                         if (i == 0)//默认首项选中
                         {
-                             Lab[i].ForeColor = Color.Red;
-                            personRegist pR = new personRegist();
+                             Lab[i].ForeColor = Color.LawnGreen; 
+                             personRegist pR = new personRegist();
                             pR.TopLevel = false;
                             pR.Dock = DockStyle.Fill;
                             pR.FormBorderStyle = FormBorderStyle.None;
@@ -147,7 +147,7 @@ namespace zkhwClient
                         Lab[i] = new Label();
                         if (i == 0)//默认首项选中
                         {
-                             Lab[i].ForeColor = Color.Red;
+                             Lab[i].ForeColor = Color.LawnGreen;
                             personRegist pR = new personRegist();
                             pR.TopLevel = false;
                             pR.Dock = DockStyle.Fill;
@@ -197,7 +197,7 @@ namespace zkhwClient
                         Lab[i] = new Label();
                         if (i == 0)//默认首项选中
                         {
-                             Lab[i].ForeColor = Color.Red;
+                             Lab[i].ForeColor = Color.LawnGreen;
                             onSiteSigning pR = new onSiteSigning();
                             pR.TopLevel = false;
                             pR.Dock = DockStyle.Fill;
@@ -234,7 +234,7 @@ namespace zkhwClient
             {
                 if (this.flowLayoutPanel1.Controls[i].Tag.ToString() == tag)
                 {
-                    this.flowLayoutPanel1.Controls[i].ForeColor = Color.Red;
+                    this.flowLayoutPanel1.Controls[i].ForeColor = Color.LawnGreen;
                 }
                 else
                 {
@@ -596,7 +596,7 @@ namespace zkhwClient
                         Lab[i] = new Label();
                         if (i == 0)//默认首项选中
                         {
-                             Lab[i].ForeColor = Color.Red;
+                             Lab[i].ForeColor = Color.LawnGreen;
                             usageStatistics pR = new usageStatistics();
                             pR.TopLevel = false;
                             pR.Dock = DockStyle.Fill;
@@ -640,7 +640,7 @@ namespace zkhwClient
                         if (i == 0)//默认首项选中
                         {
                            
-                             Lab[i].ForeColor = Color.Red;
+                             Lab[i].ForeColor = Color.LawnGreen;
                             basicInfoSettings pR = new basicInfoSettings();
                             pR.TopLevel = false;
                             pR.Dock = DockStyle.Fill;
@@ -683,7 +683,7 @@ namespace zkhwClient
 
                         if (i == 0)//默认首项选中
                         {
-                             Lab[i].ForeColor = Color.Red;
+                             Lab[i].ForeColor = Color.LawnGreen;
                             softwareSystems pR = new softwareSystems();
                             pR.TopLevel = false;
                             pR.Dock = DockStyle.Fill;
