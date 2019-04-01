@@ -164,12 +164,6 @@
     <Compile Include="service\PublicHealthService\diabetesPatientService.cs" />
     <Compile Include="service\PublicHealthService\hypertensionPatientService.cs" />
     <Compile Include="service\PublicHealthService\personalBasicInfoService.cs" />
-    <Compile Include="view\PublicHealthView\aUolderHelthService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\PublicHealthView\aUolderHelthService.Designer.cs">
-      <DependentUpon>aUolderHelthService.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\public\family_record.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -508,9 +502,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\aUHypertensionPatientServices.resx">
       <DependentUpon>aUHypertensionPatientServices.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\PublicHealthView\aUolderHelthService.resx">
-      <DependentUpon>aUolderHelthService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\PublicHealthView\aUPersonalBasicInfo.resx">
       <DependentUpon>aUPersonalBasicInfo.cs</DependentUpon>
