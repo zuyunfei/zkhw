@@ -20,7 +20,8 @@ using zkhwClient.view.setting;
 namespace zkhwClient
 {
     public partial class frmMain1 : Form
-    {
+    { 
+
         public frmMain1()
         {
             InitializeComponent();
