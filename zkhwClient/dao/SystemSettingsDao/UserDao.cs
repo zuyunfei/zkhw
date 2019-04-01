@@ -61,6 +61,15 @@ namespace zkhwClient.dao
 
             return ret == 0 ? false : true;
         }
+        //基本设置中，获取乡镇卫生院的医护人员信息
+        public DataTable listUserbyAreaCode(String code)
+        {
+            String sql = "select * from zkhw_user_info u where u.organ_code = '" + code + "'";
+            DataSet ds = new DataSet();
+            ds.Clear();
+            ds = DbHelperMySQL.Query(sql);
+            return ds.Tables[0];
+        }
 
     }
 }
