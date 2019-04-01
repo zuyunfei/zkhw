@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Xml;
 using zkhwClient.bean;
 using zkhwClient.dao;
+using zkhwClient.view.setting;
 
 namespace zkhwClient.view.PublicHealthView
 {
@@ -378,14 +379,14 @@ namespace zkhwClient.view.PublicHealthView
                 DataTable dt = grjddao.judgeRepeat(textBox3.Text);
                 if (dt.Rows.Count < 1)
                 {
-                    grjdxx.archive_no = grjdxx.Cardcode.Substring(0, 6);
+                    grjdxx.archive_no = basicInfoSettings.xcuncode + grjdxx.Cardcode.Substring(14);
                     grjdxx.photo_code = grjdxx.Cardcode + ".jpg";
                     bool istrue = grjddao.addgrjdInfo(grjdxx);
                 }
                 jkBean jk = new jkBean();
                 jk.aichive_no = grjdxx.archive_no;
                 jk.id_number = grjdxx.Cardcode;
-                jk.bar_code = barcode;
+                jk.bar_code = barcode; 
                 jk.Pic1 = grjdxx.CardPic;
                 jk.Pic2 = grjdxx.Cardcode + ".jpg";
                 addjkbool = grjddao.addJkInfo(jk);

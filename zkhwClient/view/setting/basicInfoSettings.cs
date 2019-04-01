@@ -15,7 +15,7 @@ namespace zkhwClient.view.setting
         areaConfigDao areadao = new areaConfigDao();
         basicSettingDao bsdao = new basicSettingDao();
         UserDao userdao = new UserDao();
-        string xcuncode = null;
+        public static string xcuncode = null;
         string xzcode = null;
         string qxcode = null;
         string shicode = null;
