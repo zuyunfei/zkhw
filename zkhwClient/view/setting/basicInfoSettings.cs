@@ -14,6 +14,7 @@ namespace zkhwClient.view.setting
     {
         areaConfigDao areadao = new areaConfigDao();
         basicSettingDao bsdao = new basicSettingDao();
+        UserDao userdao = new UserDao();
         string xcuncode = null;
         string xzcode = null;
         string qxcode = null;
@@ -65,7 +66,6 @@ namespace zkhwClient.view.setting
         private void comboBox4_SelectionChangeCommitted(object sender, EventArgs e)
         {
             xzcode = this.comboBox4.SelectedValue.ToString();
-            MessageBox.Show(xzcode);
             this.comboBox5.DataSource = areadao.cunInfo(xzcode);//绑定数据源
             this.comboBox5.DisplayMember = "name";//显示给用户的数据集表项
             this.comboBox5.ValueMember = "code";//操作时获取的值 
@@ -80,7 +80,7 @@ namespace zkhwClient.view.setting
             string organ_code = null;
             string organ_name = textBox1.Text;
             string input_name = this.comboBox6.SelectedValue.ToString();
-            string responsibility_doctor = this.comboBox7.SelectedValue.ToString();
+            string zeren_doctor = this.comboBox7.SelectedValue.ToString();
             string bc = this.comboBox8.SelectedValue.ToString();
             string xcg = this.comboBox9.SelectedValue.ToString();
             string sh = this.comboBox10.SelectedValue.ToString();
@@ -90,7 +90,7 @@ namespace zkhwClient.view.setting
             string xy = this.comboBox14.SelectedValue.ToString();
             string wx = textBox3.Text;
             string other = textBox2.Text;
-            string captain = this.comboBox15.SelectedValue.ToString();
+            string captain = "";//this.comboBox15.SelectedValue.ToString();
             string members = textBox4.Text;
             string operation = this.comboBox16.SelectedValue.ToString();
             string car_name = this.comboBox17.SelectedValue.ToString();
@@ -99,67 +99,70 @@ namespace zkhwClient.view.setting
 
             if (xcuncode != null && !"".Equals(xcuncode))
             {
-                bsdao.addBasicSetting(shengcode, shicode, qxcode, xzcode, xcuncode, organ_code, organ_name, input_name, responsibility_doctor, bc, xcg, sh, sgtz, ncg, xdt, xy, wx, other, captain, members, operation, car_name, create_user, create_name);
+               bool bl= bsdao.addBasicSetting(shengcode, shicode, qxcode, xzcode, xcuncode, organ_code, organ_name, input_name, zeren_doctor, bc, xcg, sh, sgtz, ncg, xdt, xy, wx, other, captain, members, operation, car_name, create_user, create_name);
+                if (bl) {
+                    MessageBox.Show("数据保存成功！");
+                }
+            }
+            else{
+                MessageBox.Show("区域选择不完整！");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            showCombobox();
+            MessageBox.Show("云平台同步当前机构的居民档案信息！");
         }
 
         private void showCombobox() {
-            this.comboBox6.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox6.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox6.ValueMember = "code";//操作时获取的值
+            DataTable dtuserlist= userdao.listUserbyOrganCode(frmLogin.organCode);
+            this.comboBox6.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox6.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox6.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox7.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox7.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox7.ValueMember = "code";//操作时获取的值
+            this.comboBox7.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox7.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox7.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox8.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox8.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox8.ValueMember = "code";//操作时获取的值
+            this.comboBox8.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox8.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox8.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox8.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox8.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox8.ValueMember = "code";//操作时获取的值
+            this.comboBox8.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox8.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox8.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox9.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox9.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox9.ValueMember = "code";//操作时获取的值
+            this.comboBox9.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox9.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox9.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox10.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox10.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox10.ValueMember = "code";//操作时获取的值
+            this.comboBox10.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox10.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox10.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox11.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox11.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox11.ValueMember = "code";//操作时获取的值
+            this.comboBox11.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox11.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox11.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox12.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox12.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox12.ValueMember = "code";//操作时获取的值
+            this.comboBox12.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox12.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox12.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox13.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox13.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox13.ValueMember = "code";//操作时获取的值
+            this.comboBox13.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox13.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox13.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox14.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox14.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox14.ValueMember = "code";//操作时获取的值
+            this.comboBox14.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox14.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox14.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox15.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox15.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox15.ValueMember = "code";//操作时获取的值
+            this.comboBox16.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox16.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox16.ValueMember = "uname";//操作时获取的值
 
-            this.comboBox16.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox16.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox16.ValueMember = "code";//操作时获取的值
-
-            this.comboBox17.DataSource = areadao.shengInfo();//绑定数据源
-            this.comboBox17.DisplayMember = "name";//显示给用户的数据集表项
-            this.comboBox17.ValueMember = "code";//操作时获取的值
+            this.comboBox17.DataSource = dtuserlist.Copy();//绑定数据源
+            this.comboBox17.DisplayMember = "uname";//显示给用户的数据集表项
+            this.comboBox17.ValueMember = "uname";//操作时获取的值
         }
     }
 }
