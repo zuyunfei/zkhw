@@ -26,7 +26,6 @@ namespace zkhwClient.PublicHealth
             //让默认的日期时间减一天
             this.dateTimePicker1.Value = this.dateTimePicker2.Value.AddDays(-1);
             string str = Application.StartupPath;//项目路径
-            this.button1.BackgroundImage = Image.FromFile(@str + "/images/check.png");
             queryExaminatProgress();
         }
         private void queryExaminatProgress()
