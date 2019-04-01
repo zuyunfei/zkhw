@@ -38,11 +38,7 @@ namespace zkhwClient.view.HomeDoctorSigningView
 
         private void GroupBoxBin(string fid)
         {
-            while (groupBox1.Controls.Count != 0)
-            {
-                groupBox1.Controls.Clear();
-                //groupBox1.Dispose();
-            }
+            
             string sql = $"select id,ZhiWei,ZhiWu,XingMing,LianXiFangShi from zkhw_qy_tdcy where FuID='{fid}' ORDER  BY ZhiWei asc";
             DataSet datas = DbHelperMySQL.Query(sql);
             if (datas != null && datas.Tables.Count > 0)
@@ -112,6 +108,11 @@ namespace zkhwClient.view.HomeDoctorSigningView
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string fid = comboBox1.SelectedValue?.ToString();
+            while (groupBox1.Controls.Count != 0)
+            {
+                groupBox1.Controls.Clear();
+                //groupBox1.Dispose();
+            }
             if (!string.IsNullOrWhiteSpace(fid) && fid.Length == 36)
             {
                 GroupBoxBin(fid);
