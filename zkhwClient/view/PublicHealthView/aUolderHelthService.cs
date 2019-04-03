@@ -53,7 +53,60 @@ namespace zkhwClient.view.PublicHealthView
             this.textBox18.Text += System.Environment.NewLine;
             this.textBox18.Text += System.Environment.NewLine;
             this.textBox18.Text += "3";
+
+            this.textBox19.Text += System.Environment.NewLine;
+            this.textBox19.Text += "完全需要帮";
+            this.textBox19.Text += System.Environment.NewLine;
+            this.textBox19.Text += "助";
+            this.textBox19.Text += System.Environment.NewLine;
+            this.textBox19.Text += System.Environment.NewLine;
+            this.textBox19.Text += System.Environment.NewLine;
+            this.textBox19.Text += "3";
+
+            this.textBox22.Text += System.Environment.NewLine;
+            this.textBox22.Text += "独立完成";
+            this.textBox22.Text += System.Environment.NewLine;
+            this.textBox22.Text += System.Environment.NewLine;
+            this.textBox22.Text += System.Environment.NewLine;
+            this.textBox22.Text += System.Environment.NewLine;
+            this.textBox22.Text += "0";
+
+            this.textBox23.Text += System.Environment.NewLine;
+            this.textBox23.Text += "能独立地洗头、梳";
+            this.textBox23.Text += System.Environment.NewLine;
+            this.textBox23.Text += "头、洗脸、刷牙、剃";
+            this.textBox23.Text += System.Environment.NewLine;
+            this.textBox23.Text += "须等；洗澡需要协助";
+            this.textBox23.Text += System.Environment.NewLine;
+            this.textBox23.Text += System.Environment.NewLine;
+            this.textBox23.Text += "1";
+
+            this.textBox24.Text += System.Environment.NewLine;
+            this.textBox24.Text += "在协助下和适当";
+            this.textBox24.Text += System.Environment.NewLine;
+            this.textBox24.Text += "的时间内能完，";
+            this.textBox24.Text += System.Environment.NewLine;
+            this.textBox24.Text += "成部分梳洗活动";
+            this.textBox24.Text += System.Environment.NewLine;
+            this.textBox24.Text += System.Environment.NewLine;
+            this.textBox24.Text += "3";
+
+            this.textBox25.Text += System.Environment.NewLine;
+            this.textBox25.Text += "完全需要帮";
+            this.textBox25.Text += System.Environment.NewLine;
+            this.textBox25.Text += "助";
+            this.textBox25.Text += System.Environment.NewLine;
+            this.textBox25.Text += System.Environment.NewLine;
+            this.textBox25.Text += System.Environment.NewLine;
+            this.textBox25.Text += "7";
+
+            
+
         }
+        
+
+
+
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
