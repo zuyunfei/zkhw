@@ -24,6 +24,7 @@ namespace zkhwClient
 
         public frmMain1()
         {
+
             InitializeComponent();
 
         }
